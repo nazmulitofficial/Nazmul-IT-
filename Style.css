@@ -1,0 +1,199 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#000;
+color:#d1d5db;
+}
+body{
+
+
+header{
+border-bottom:1px solid #222;
+}
+
+.hero{
+    background:
+    linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
+    url("photo.jpg");
+
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    height: 60vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+color:#ff8800;
+}
+
+nav a{
+color:#ddd;
+text-decoration:none;
+margin-left:20px;
+transition:.3s;
+}
+
+nav a:hover{
+color:#ff8800;
+}
+
+.hero{
+text-align:center;
+padding:90px 20px;
+}
+
+.hero h1{
+font-size:65px;
+color:white;
+}
+
+.hero h2{
+margin-top:15px;
+color:#ff8800;
+font-size:30px;
+}
+
+.hero p{
+margin-top:20px;
+font-size:18px;
+color:#aaa;
+}
+.card-link{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card h3{
+    color: orange;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.cards{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+padding:40px 20px;
+}
+
+.card{
+width:330px;
+background:#111;
+border:1px solid #222;
+border-radius:15px;
+padding:35px;
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:#ff8800;
+}
+
+.card h3{
+color:#ff8800;
+margin-bottom:15px;
+}
+
+.contact{
+padding:80px 20px;
+text-align:center;
+}
+
+.contact h2{
+color:#ff8800;
+margin-bottom:15px;
+}
+
+footer{
+border-top:1px solid #222;
+padding:40px 20px;
+text-align:center;
+}
+
+.socials,
+.footer-links{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-bottom:20px;
+}
+
+.socials a,
+.footer-links a{
+text-decoration:none;
+color:#ddd;
+padding:10px 15px;
+border:1px solid #333;
+border-radius:8px;
+transition:.3s;
+}
+
+.socials a:hover,
+.footer-links a:hover{
+color:#ff8800;
+border-color:#ff8800;
+}
+
+footer p{
+color:#888;
+margin-top:10px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:42px;
+}
+
+.hero h2{
+font-size:24px;
+}
+
+.navbar{
+flex-direction:column;
+gap:20px;
+}
+
+nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+nav a{
+margin:8px;
+}
+
+}

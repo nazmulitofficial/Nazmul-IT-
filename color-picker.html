@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Picker - Nazmul IT</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#000;
+  color:#d1d5db;
+  text-align:center;
+}
+
+/* HEADER */
+.hero{
+  padding:50px 20px;
+  border-bottom:1px solid #222;
+}
+
+.hero h1{
+  color:#ff8800;
+  font-size:42px;
+}
+
+.hero p{
+  color:#9ca3af;
+}
+
+/* CONTAINER */
+.container{
+  max-width:500px;
+  margin:40px auto;
+  padding:20px;
+}
+
+/* PREVIEW */
+.preview{
+  width:100%;
+  height:150px;
+  border-radius:12px;
+  border:1px solid #222;
+  margin-bottom:20px;
+  background:#ff8800;
+}
+
+/* INPUT COLOR */
+input[type="color"]{
+  width:100%;
+  height:60px;
+  border:none;
+  cursor:pointer;
+  margin-bottom:15px;
+}
+
+/* HEX INPUT */
+.hex-input{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:8px;
+  border:1px solid #222;
+  background:#111;
+  color:#fff;
+  text-align:center;
+}
+
+/* HEX DISPLAY */
+.hex{
+  background:#111;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #222;
+  font-size:18px;
+  color:#ff8800;
+  margin-bottom:15px;
+}
+
+/* BUTTON */
+button{
+  padding:10px 20px;
+  background:#ff8800;
+  border:none;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#ff7700;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+  <h1>Color Picker</h1>
+  <p>Pick color or enter HEX code</p>
+</div>
+
+<div class="container">
+
+  <div class="preview" id="preview"></div>
+
+  <input type="color" id="picker" value="#ff8800" oninput="fromPicker()">
+
+  <input type="text" id="hexInput" class="hex-input"
+         placeholder="#ff8800" oninput="fromHex()">
+
+  <div class="hex" id="hex">#ff8800</div>
+
+  <button onclick="copyHex()">Copy HEX</button>
+
+</div>
+
+<script>
+
+let picker = document.getElementById("picker");
+let hexInput = document.getElementById("hexInput");
+let preview = document.getElementById("preview");
+let hex = document.getElementById("hex");
+
+/* from color picker */
+function fromPicker(){
+  let color = picker.value;
+  update(color);
+  hexInput.value = color;
+}
+
+/* from hex input */
+function fromHex(){
+  let color = hexInput.value;
+
+  if(/^#([0-9A-F]{3}){1,2}$/i.test(color)){
+    update(color);
+    picker.value = color;
+  }
+}
+
+/* update UI */
+function update(color){
+  preview.style.background = color;
+  hex.innerText = color;
+}
+
+/* copy */
+function copyHex(){
+  navigator.clipboard.writeText(hex.innerText);
+  alert("Copied: " + hex.innerText);
+}
+
+/* init */
+update("#ff8800");
+
+</script>
+
+</body>
+</html>

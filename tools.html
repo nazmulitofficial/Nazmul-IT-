@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Tools - Nazmul IT</title>
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#000;
+color:#d1d5db;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:70px 20px;
+border-bottom:1px solid #222;
+}
+
+.hero h1{
+font-size:52px;
+color:#ff8800;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+color:#9ca3af;
+}
+
+/* TOOLS GRID */
+.tools{
+max-width:1200px;
+margin:auto;
+padding:50px 20px;
+
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+gap:25px;
+}
+
+/* CARD */
+.tool-card{
+background:#111;
+border:1px solid #222;
+border-radius:15px;
+padding:30px;
+text-align:center;
+transition:0.3s;
+}
+
+.tool-card:hover{
+border-color:#ff8800;
+transform:translateY(-6px);
+}
+
+.tool-card h3{
+color:#ff8800;
+font-size:22px;
+margin-bottom:10px;
+}
+
+.tool-card p{
+color:#9ca3af;
+line-height:1.6;
+margin-bottom:20px;
+}
+
+/* BUTTON */
+.btn{
+display:block;
+width:100%;
+padding:12px;
+background:#ff8800;
+color:#fff;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#ff7700;
+}
+
+/* FOOTER */
+.footer{
+text-align:center;
+padding:30px;
+border-top:1px solid #222;
+margin-top:40px;
+color:#9ca3af;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+.hero h1{
+font-size:38px;
+}
+
+.tool-card{
+padding:25px;
+}
+
+.tool-card h3{
+font-size:20px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="hero">
+<h1>Smart Tools Hub</h1>
+<p>Powerful free tools for daily productivity</p>
+</header>
+
+<section class="tools">
+
+<div class="tool-card">
+<h3>🧠 Text Analyzer</h3>
+<p>Shorten long text instantly</p>
+<a href="text-analyzer.html" class="btn">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>📊 Calculator</h3>
+<p>Count words and characters</p>
+<a href="calculator.html" class="btn">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>🔤 Case Converter</h3>
+<p>UPPER, lower, Title case convert</p>
+<a href="case-converter.html" class="btn">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>📊 JSON Formatter</h3>
+<p>Format messy JSON data</p>
+<a href="json-formatter.html" class="btn">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>🎨 Color Picker</h3>
+<p>Pick and copy colors easily</p>
+<a href="color-picker.html" class="btn">Open Tool</a>
+</div>
+
+</section>
+
+<footer class="footer">
+<p>© 2026 Nazmul IT | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Text Analyzer - Nazmul IT</title>
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#000;
+color:#d1d5db;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:60px 20px;
+border-bottom:1px solid #222;
+}
+
+.hero h1{
+font-size:50px;
+color:#ff8800;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#9ca3af;
+font-size:18px;
+}
+
+/* TOOL BOX */
+.tool-box{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+text-align:center;
+}
+
+/* TEXTAREA */
+textarea{
+width:100%;
+height:200px;
+padding:15px;
+border-radius:10px;
+border:1px solid #222;
+background:#111;
+color:#fff;
+font-size:16px;
+outline:none;
+resize:none;
+}
+
+textarea:focus{
+border-color:#ff8800;
+}
+
+/* BUTTON */
+.btn{
+margin-top:15px;
+width:100%;
+padding:12px;
+background:#ff8800;
+border:none;
+border-radius:8px;
+color:#fff;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+font-weight:bold;
+}
+
+.btn:hover{
+background:#ff7700;
+}
+
+/* RESULT BOX */
+.result-box{
+margin-top:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+}
+
+.card{
+background:#111;
+border:1px solid #222;
+padding:20px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.card:hover{
+border-color:#ff8800;
+transform:translateY(-5px);
+}
+
+.card h3{
+color:#ff8800;
+margin-bottom:10px;
+}
+
+.card span{
+font-size:22px;
+font-weight:bold;
+color:#fff;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+.hero h1{
+font-size:38px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="hero">
+<h1>Text Analyzer</h1>
+<p>Analyze your text instantly</p>
+</header>
+
+<section class="tool-box">
+
+<textarea id="text" placeholder="Paste your text here..."></textarea>
+
+<button class="btn" onclick="analyzeText()">Analyze Text</button>
+
+<div class="result-box">
+
+<div class="card">
+<h3>Words</h3>
+<span id="words">0</span>
+</div>
+
+<div class="card">
+<h3>Characters</h3>
+<span id="chars">0</span>
+</div>
+
+<div class="card">
+<h3>Sentences</h3>
+<span id="sentences">0</span>
+</div>
+
+<div class="card">
+<h3>Reading Time</h3>
+<span id="reading">0 Min</span>
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+function analyzeText(){
+
+let text = document.getElementById("text").value;
+
+let words = text.trim()
+.split(/\s+/)
+.filter(word => word.length > 0).length;
+
+let chars = text.length;
+
+let sentences = text
+.split(/[.!?]+/)
+.filter(s => s.trim().length > 0).length;
+
+let reading = Math.max(1, Math.ceil(words / 200));
+
+document.getElementById("words").innerText = words;
+document.getElementById("chars").innerText = chars;
+document.getElementById("sentences").innerText = sentences;
+document.getElementById("reading").innerText = reading + " Min";
+
+}
+
+</script>
+
+</body>
+</html>
