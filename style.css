@@ -13,25 +13,10 @@ body{
 
 
 header{
-border-bottom:1px solid #222;
+border-bottom:1px solid #222
 }
+    
 
-.hero{
-    background:
-    linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
-    url("photo.jpg");
-
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-
-    height: 60vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 .container{
 width:90%;
