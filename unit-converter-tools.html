@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unit Converter - Nazmul IT</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+/* এখানে পরের Part-এ CSS আসবে */
+
+body{
+    margin:0;
+    background:#000;
+    color:#ddd;
+    font-family:Arial,sans-serif;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+
+main{
+    flex:1;
+    padding:40px 15px;
+}
+
+.converter{
+    max-width:850px;
+    margin:auto;
+    background:#111;
+    border:1px solid #222;
+    border-radius:12px;
+    padding:30px;
+    box-shadow:0 0 20px rgba(255,140,0,.15);
+}
+
+.converter h1{
+    color:#ff8c00;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.converter p{
+    text-align:center;
+    color:#aaa;
+    margin-bottom:25px;
+}
+
+.tabs{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.tabs button{
+    background:#1a1a1a;
+    color:#ddd;
+    border:1px solid #333;
+    padding:10px 16px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.tabs button:hover,
+.tabs button.active{
+    background:#ff8c00;
+    color:#000;
+}
+
+.row{
+    display:flex;
+    gap:15px;
+    margin-bottom:18px;
+}
+
+.row input,
+.row select{
+    flex:1;
+    padding:13px;
+    background:#181818;
+    color:#fff;
+    border:1px solid #333;
+    border-radius:6px;
+    font-size:16px;
+}
+
+#swapBtn{
+    width:100%;
+    padding:13px;
+    margin-bottom:18px;
+    background:#ff8c00;
+    color:#000;
+    border:none;
+    border-radius:6px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#swapBtn:hover{
+    background:#ffa733;
+}
+
+.result{
+    margin-top:20px;
+    padding:20px;
+    background:#181818;
+    border:1px solid #333;
+    border-left:5px solid #ff8c00;
+    border-radius:8px;
+    text-align:center;
+}
+
+.result h3{
+    color:#ff8c00;
+    margin-bottom:10px;
+}
+
+#resultText{
+    font-size:28px;
+    font-weight:bold;
+    color:#22c55e;
+    word-break:break-word;
+}
+
+@media(max-width:768px){
+
+.row{
+    flex-direction:column;
+}
+
+.tabs{
+    gap:8px;
+}
+
+.tabs button{
+    width:48%;
+}
+
+.converter{
+    padding:20px;
+}
+
+}
+
+footer{
+text-align:center;
+padding:25px;
+border-top:1px solid #222;
+color:#9ca3af;
+}
+
+header{
+    background:#000;
+    border-bottom:1px solid #222;
+    padding:18px 20px;
+}
+
+.logo{
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    color:#ff8c00;
+    margin-bottom:15px;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:500;
+    padding:8px 12px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff8c00;
+}
+
+@media(max-width:768px)
+{
+
+    header{
+        padding:15px;
+    }
+
+    .logo{
+        font-size:26px;
+        margin-bottom:12px;
+    }
+
+    nav{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:15px;
+        padding:6px 8px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Nazmul IT</div>
+
+<nav>
+
+<a href="../index.html">Home</a>
+<a href="service.html">Service</a>
+<a href="tools.html">Tools</a>
+<a href="courses.html">Courses</a>
+<a href="blog.html">Blog</a>
+
+</nav>
+
+</header>
+
+<main>
+
+<div class="converter">
+
+<h1>Unit Converter</h1>
+
+<p>Convert units instantly with one click.</p>
+
+<div class="tabs">
+
+<button class="active" data-type="length">📏 Length</button>
+
+<button data-type="weight">⚖️ Weight</button>
+
+<button data-type="temperature">🌡 Temperature</button>
+
+<button data-type="area">📐 Area</button>
+
+<button data-type="volume">🧪 Volume</button>
+
+<button data-type="speed">🚗 Speed</button>
+
+<button data-type="time">⏰ Time</button>
+
+<button data-type="storage">💾 Storage</button>
+
+</div>
+
+<div class="row">
+
+<input
+type="number"
+id="input"
+placeholder="Enter value">
+
+<select id="from"></select>
+
+</div>
+
+<button id="swapBtn">
+⇅ Swap
+</button>
+
+<div class="row">
+
+<input
+type="number"
+id="output"
+readonly>
+
+<select id="to"></select>
+
+</div>
+
+<div class="result">
+
+<h3>Converted Result</h3>
+
+<p id="resultText">0</p>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+
+<p>© 2026 Nazmul IT. All Rights Reserved</p>
+
+</footer>
+
+<script>
+
+/* এখানে পরের Part-এ JavaScript আসবে */
+// Part 3 (JavaScript)
+
+const units = {
+
+length:{
+name:["Meter","Kilometer","Centimeter","Millimeter","Inch","Foot","Mile"],
+value:[1,1000,0.01,0.001,0.0254,0.3048,1609.344]
+},
+
+weight:{
+name:["Kilogram","Gram","Milligram","Pound","Ounce"],
+value:[1,0.001,0.000001,0.45359237,0.0283495]
+},
+
+area:{
+name:["Square Meter","Square Kilometer","Square Foot","Acre"],
+value:[1,1000000,0.092903,4046.856]
+},
+
+volume:{
+name:["Liter","Milliliter","Cubic Meter","Gallon"],
+value:[1,0.001,1000,3.78541]
+},
+
+speed:{
+name:["m/s","km/h","mph"],
+value:[1,0.277778,0.44704]
+},
+
+time:{
+name:["Second","Minute","Hour","Day"],
+value:[1,60,3600,86400]
+},
+
+storage:{
+name:["Byte","KB","MB","GB"],
+value:[1,1024,1048576,1073741824]
+},
+
+temperature:{
+name:["Celsius","Fahrenheit","Kelvin"]
+}
+
+};
+
+let currentType="length";
+
+const input=document.getElementById("input");
+const output=document.getElementById("output");
+const from=document.getElementById("from");
+const to=document.getElementById("to");
+const result=document.getElementById("resultText");
+
+function loadUnits(type){
+
+currentType=type;
+
+document.querySelectorAll(".tabs button").forEach(btn=>{
+
+btn.classList.remove("active");
+
+if(btn.dataset.type==type){
+btn.classList.add("active");
+}
+
+});
+
+from.innerHTML="";
+to.innerHTML="";
+
+units[type].name.forEach((u,i)=>{
+
+from.innerHTML+=`<option value="${i}">${u}</option>`;
+to.innerHTML+=`<option value="${i}">${u}</option>`;
+
+});
+
+to.selectedIndex=1;
+
+convert();
+
+}
+
+document.querySelectorAll(".tabs button").forEach(btn=>{
+
+btn.onclick=function(){
+
+loadUnits(this.dataset.type);
+
+}
+
+});
+
+input.oninput=convert;
+from.onchange=convert;
+to.onchange=convert;
+
+document.getElementById("swapBtn").onclick=function(){
+
+let a=from.selectedIndex;
+
+from.selectedIndex=to.selectedIndex;
+to.selectedIndex=a;
+
+convert();
+
+};
+
+function convert(){
+
+let value=parseFloat(input.value);
+
+if(isNaN(value)){
+
+output.value="";
+result.innerHTML="0";
+
+return;
+
+}
+
+let f=Number(from.value);
+let t=Number(to.value);
+
+let ans;
+
+if(currentType=="temperature"){
+
+if(f==0&&t==1) ans=value*9/5+32;
+else if(f==0&&t==2) ans=value+273.15;
+
+else if(f==1&&t==0) ans=(value-32)*5/9;
+else if(f==1&&t==2) ans=(value-32)*5/9+273.15;
+
+else if(f==2&&t==0) ans=value-273.15;
+else if(f==2&&t==1) ans=(value-273.15)*9/5+32;
+
+else ans=value;
+
+}else{
+
+let base=value*units[currentType].value[f];
+
+ans=base/units[currentType].value[t];
+
+}
+
+output.value=ans.toFixed(4);
+
+result.innerHTML=
+ans.toFixed(4)+" "+units[currentType].name[t];
+
+}
+
+loadUnits("length");
+
+</script>
+
+</body>
+</html>

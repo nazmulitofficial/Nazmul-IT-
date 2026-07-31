@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code Tools - Nazmul IT</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+body{background:#000;color:#d1d5db;}
+header{
+    background:#000;
+    border-bottom:1px solid #222;
+    padding:18px 20px;
+}
+
+.logo{
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    color:#ff8c00;
+    margin-bottom:15px;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:500;
+    padding:8px 12px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff8c00;
+}
+
+@media(max-width:768px)
+{
+
+    header{
+        padding:15px;
+    }
+
+    .logo{
+        font-size:26px;
+        margin-bottom:12px;
+    }
+
+    nav{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:15px;
+        padding:6px 8px;
+    }
+
+}
+.hero{text-align:center;padding:30px 20px;border-bottom:1px solid #222;}
+.hero h1{font-size:32px;color:#ff8800;margin-bottom:5px;}
+.tab-menu{display:flex;justify-content:center;gap:8px;margin:20px;padding:0 15px;flex-wrap:wrap;}
+.tab-btn{padding:10px 16px;background:#111;border:1px solid #333;color:#d1d5db;border-radius:8px;cursor:pointer;font-weight:bold;font-size:14px;}
+.tab-btn.active{background:#ff8800;color:#000;border-color:#ff8800;}
+.tool-container{max-width:900px;margin:20px auto;padding:0 15px;}
+.tool-box{background:#111;border:1px solid #222;border-radius:15px;padding:20px;display:none;}
+.tool-box.active{display:block;}
+.tool-box h2{color:#ff8800;text-align:center;margin-bottom:15px;font-size:20px;}
+.input-group label{display:block;color:#9ca3af;margin-bottom:8px;font-size:13px;}
+textarea{width:100%;padding:10px;background:#000;border:1px solid #333;border-radius:8px;color:#0f0;font-size:13px;min-height:160px;font-family:monospace;}
+.tool-btn{width:100%;padding:12px;background:#ff8800;color:#000;border:none;border-radius:8px;font-weight:bold;cursor:pointer;margin-top:10px;font-size:15px;}
+.tool-btn.download{background:#22c55e;}
+.preview-box{width:100%;min-height:250px;background:#fff;border-radius:8px;margin:10px 0;border:1px solid #333;}
+.output-box{width:100%;padding:10px;background:#000;border:1px solid #333;border-radius:8px;color:#0f0;font-family:monospace;white-space:pre-wrap;margin-top:10px;min-height:80px;font-size:13px;}
+.note{color:#9ca3af;font-size:11px;text-align:center;margin-top:5px;}
+footer{
+text-align:center;
+padding:25px;
+border-top:1px solid #222;
+color:#9ca3af;
+}
+</style>
+</head>
+
+<body>
+<header>
+    <div class="logo">Nazmul IT</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="service.html">Service</a>
+        <a href="tools.html">Tools</a>
+        <a href="courses.html">Courses</a>
+        <a href="blog.html">Blog</a>
+    </nav>
+</header>
+
+<section class="hero">
+<h1>Code Tools</h1>
+<p>Free Developer Tools - HTML to PDF, Minifier, JSON Formatter</p>
+</section>
+
+<div class="tab-menu">
+    <button class="tab-btn active" id="btn1">📄 HTML to PDF</button>
+    <button class="tab-btn" id="btn2">⚡ Code Minifier</button>
+    <button class="tab-btn" id="btn3">{} JSON Formatter</button>
+</div>
+
+<div class="tool-container">
+
+    <div id="box1" class="tool-box active">
+        <h2>HTML to PDF Converter</h2>
+        <div class="input-group">
+            <label>Paste HTML + CSS Code</label>
+            <textarea id="htmlCode"><h1 style="color:#ff8800;text-align:center;">Nazmul IT</h1><p style="text-align:center;">This is a sample PDF</p></textarea>
+        </div>
+        <label style="color:#9ca3af;">Live Preview:</label>
+        <iframe id="htmlPreview" class="preview-box"></iframe>
+        <button class="tool-btn" id="previewBtn">🔄 Update Preview</button>
+        <button class="tool-btn download" id="pdfBtn">⬇️ Print to PDF</button>
+        <p class="note">Note: The print window will appear > Select "Save as PDF" under Destination.</p>
+    </div>
+
+    <div id="box2" class="tool-box">
+        <h2>HTML / CSS / JS Minifier</h2>
+        <div class="input-group">
+            <label>Paste Your Code</label>
+            <textarea id="minifyInput"></textarea>
+        </div>
+        <button class="tool-btn" id="minifyBtn">Minify Code</button>
+        <label style="color:#9ca3af;">Minified Output:</label>
+        <div class="output-box" id="minifyOutput"></div>
+        <button class="tool-btn download" id="copyMinify">📋 Copy Minified Code</button>
+    </div>
+
+    <div id="box3" class="tool-box">
+        <h2>JSON Formatter & Validator</h2>
+        <div class="input-group">
+            <label>Paste JSON</label>
+            <textarea id="jsonInput">{"name":"Nazmul","skill":"Web Dev"}</textarea>
+        </div>
+        <button class="tool-btn" id="formatBtn">Format JSON</button>
+        <button class="tool-btn" id="validateBtn">Validate JSON</button>
+        <label style="color:#9ca3af;">Output:</label>
+        <div class="output-box" id="jsonOutput"></div>
+        <button class="tool-btn download" id="copyJson">📋 Copy Formatted JSON</button>
+    </div>
+
+</div>
+
+<footer class="footer">
+<p>© 2026 Nazmul IT | All Rights Reserved</p>
+</footer>
+
+<script>
+// TAB SWITCH
+document.getElementById('btn1').onclick = function(){ showBox('box1', 'btn1'); }
+document.getElementById('btn2').onclick = function(){ showBox('box2', 'btn2'); }
+document.getElementById('btn3').onclick = function(){ showBox('box3', 'btn3'); }
+
+function showBox(boxId, btnId){
+    document.querySelectorAll('.tool-box').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(boxId).classList.add('active');
+    document.getElementById(btnId).classList.add('active');
+}
+
+// COPY
+function copyText(id){
+    navigator.clipboard.writeText(document.getElementById(id).innerText);
+    alert("Copied to Clipboard!");
+}
+
+// HTML TO PDF
+document.getElementById('previewBtn').onclick = function(){
+    document.getElementById('htmlPreview').srcdoc = document.getElementById('htmlCode').value;
+}
+document.getElementById('pdfBtn').onclick = function(){
+    let code = document.getElementById('htmlCode').value;
+    let w = window.open('', '', 'height=700,width=900');
+    w.document.write(code);
+    w.document.close();
+    w.focus();
+    setTimeout(function(){ w.print(); }, 250);
+}
+document.getElementById('previewBtn').click();
+
+// MINIFIER
+document.getElementById('minifyBtn').onclick = function(){
+    let code = document.getElementById('minifyInput').value;
+    if(code === ''){ alert("Please paste some code"); return; }
+    let minified = code.replace(/\s+/g, ' ').replace(/>\s+</g, '><').trim();
+    document.getElementById('minifyOutput').innerText = minified;
+}
+document.getElementById('copyMinify').onclick = function(){ copyText('minifyOutput'); }
+
+// JSON
+document.getElementById('formatBtn').onclick = function(){
+    try{
+        let j = JSON.parse(document.getElementById('jsonInput').value);
+        document.getElementById('jsonOutput').innerText = JSON.stringify(j, null, 4);
+    }catch(e){ document.getElementById('jsonOutput').innerText = "Error: " + e.message; }
+}
+document.getElementById('validateBtn').onclick = function(){
+    try{ JSON.parse(document.getElementById('jsonInput').value); 
+        document.getElementById('jsonOutput').innerText = "✅ Valid JSON"; 
+    }catch(e){ document.getElementById('jsonOutput').innerText = "❌ Invalid JSON: " + e.message; }
+}
+document.getElementById('copyJson').onclick = function(){ copyText('jsonOutput'); }
+</script>
+</body>
+</html>

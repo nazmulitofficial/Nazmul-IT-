@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Calculators - Nazmul IT</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+body{background:#000;color:#d1d5db;overflow-x:hidden;}
+
+/* SAME HEADER */
+header{background:#000;border-bottom:1px solid #222;padding:18px 20px;}
+.logo{text-align:center;font-size:32px;font-weight:bold;color:#ff8c00;margin-bottom:15px;}
+nav{display:flex;justify-content:center;align-items:center;gap:22px;flex-wrap:wrap;}
+nav a{color:#ddd;text-decoration:none;font-size:17px;font-weight:500;padding:8px 12px;transition:0.3s;}
+nav a:hover{color:#ff8c00;}
+
+.hero{text-align:center;padding:50px 20px;border-bottom:1px solid #222;}
+.hero h1{font-size:42px;color:#ff8800;margin-bottom:10px;}
+.hero p{font-size:16px;color:#9ca3af;}
+
+.tab-menu{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:30px auto;max-width:1000px;padding:0 20px;}
+.tab-btn{padding:12px 20px;background:#111;border:1px solid #333;color:#d1d5db;border-radius:8px;cursor:pointer;font-size:15px;font-weight:bold;transition:0.3s;}
+.tab-btn:hover{background:#222;border-color:#ff8800;}
+.tab-btn.active{background:#ff8800;color:#000;border-color:#ff8800;}
+
+.calc-container{max-width:500px;margin:30px auto;padding:0 20px;}
+.calc-box{background:#111;border:1px solid #222;border-radius:15px;padding:30px;display:none;}
+.calc-box.active{display:block;}
+.calc-box h2{color:#ff8800;text-align:center;margin-bottom:20px;font-size:24px;}
+
+.input-group{margin-bottom:15px;}
+.input-group label{display:block;color:#9ca3af;margin-bottom:8px;font-size:14px;}
+.input-group input{width:100%;padding:12px;background:#000;border:1px solid #333;border-radius:8px;color:#fff;font-size:16px;outline:none;}
+.input-group input:focus{border-color:#ff8800;}
+
+.calc-btn{width:100%;padding:14px;background:#ff8800;color:#000;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;transition:0.3s;margin-top:10px;}
+.calc-btn:hover{background:#ff7700;}
+.result-box{margin-top:20px;padding:15px;background:#000;border:1px solid #333;border-radius:8px;text-align:center;font-size:18px;color:#ff8800;font-weight:bold;}
+
+#basicDisplay{width:100%;height:60px;background:#000;border:1px solid #333;border-radius:10px;color:#fff;font-size:24px;text-align:right;padding:10px;margin-bottom:15px;}
+.basic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.basic-grid button{padding:15px;font-size:18px;border:none;border-radius:8px;cursor:pointer;background:#1f1f1f;color:#fff;transition:0.2s;}
+.basic-grid button:hover{background:#333;}
+.basic-grid .equal{background:#ff8800;}
+.basic-grid .equal:hover{background:#ff7700;}
+.basic-grid .clear{background:#ff3b3b;}
+.basic-grid .clear:hover{background:#e63232;}
+
+.footer{text-align:center;padding:30px 20px;border-top:1px solid #222;margin-top:40px;color:#9ca3af;font-size:14px;}
+
+@media(max-width:768px){
+    header{padding:15px;}
+    .logo{font-size:26px;margin-bottom:12px;}
+    nav{gap:12px;}
+    nav a{font-size:15px;padding:6px 8px;}
+    .hero h1{font-size:32px;}
+    .tab-btn{padding:10px 15px;font-size:13px;}
+    .calc-box{padding:20px;}
+}
+</style>
+</head>
+
+<body>
+<header>
+    <div class="logo">Nazmul IT</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="service.html">Service</a>
+        <a href="tools.html">Tools</a>
+        <a href="courses.html">Courses</a>
+        <a href="blog.html">Blog</a>
+    </nav>
+</header>
+
+<section class="hero">
+<h1>All-in-One Calculator</h1>
+<p>Basic, Age, BMI, Loan & More in One Page</p>
+</section>
+
+<div class="tab-menu">
+    <button class="tab-btn active" onclick="openTab('basic')">🧮 Basic</button>
+    <button class="tab-btn" onclick="openTab('age')">🎂 Age</button>
+    <button class="tab-btn" onclick="openTab('bmi')">📊 BMI</button>
+    <button class="tab-btn" onclick="openTab('loan')">💰 Loan</button>
+    <button class="tab-btn" onclick="openTab('percent')">%</button>
+</div>
+
+<div class="calc-container">
+    <!-- Basic -->
+    <div id="basic" class="calc-box active">
+        <h2>Basic Calculator</h2>
+        <input type="text" id="basicDisplay" readonly>
+        <div class="basic-grid">
+            <button onclick="basicPress('7')">7</button><button onclick="basicPress('8')">8</button><button onclick="basicPress('9')">9</button><button onclick="basicPress('/')">/</button>
+            <button onclick="basicPress('4')">4</button><button onclick="basicPress('5')">5</button><button onclick="basicPress('6')">6</button><button onclick="basicPress('*')">*</button>
+            <button onclick="basicPress('1')">1</button><button onclick="basicPress('2')">2</button><button onclick="basicPress('3')">3</button><button onclick="basicPress('-')">-</button>
+            <button onclick="basicPress('0')">0</button><button onclick="basicPress('.')">.</button><button onclick="basicCalc()" class="equal">=</button><button onclick="basicPress('+')">+</button>
+            <button onclick="basicClear()" class="clear" style="grid-column:span 4;">Clear</button>
+        </div>
+    </div>
+
+    <!-- Age -->
+    <div id="age" class="calc-box">
+        <h2>Age Calculator</h2>
+        <div class="input-group"><label>Select Your Date of Birth</label><input type="date" id="dob"></div>
+        <button class="calc-btn" onclick="calcAge()">Calculate Age</button>
+        <div class="result-box" id="ageResult">Your age will show here</div>
+    </div>
+
+    <!-- BMI -->
+    <div id="bmi" class="calc-box">
+        <h2>BMI Calculator</h2>
+        <div class="input-group"><label>Height (cm)</label><input type="number" id="height" placeholder="Enter height in cm"></div>
+        <div class="input-group"><label>Weight (kg)</label><input type="number" id="weight" placeholder="Enter weight in kg"></div>
+        <button class="calc-btn" onclick="calcBMI()">Calculate BMI</button>
+        <div class="result-box" id="bmiResult">Your BMI will show here</div>
+    </div>
+
+    <!-- Loan -->
+    <div id="loan" class="calc-box">
+        <h2>Loan EMI Calculator</h2>
+        <div class="input-group"><label>Loan Amount (৳)</label><input type="number" id="loanAmount" placeholder="e.g. 500000"></div>
+        <div class="input-group"><label>Interest Rate (% per year)</label><input type="number" id="interest" placeholder="e.g. 10"></div>
+        <div class="input-group"><label>Loan Tenure (Months)</label><input type="number" id="months" placeholder="e.g. 60"></div>
+        <button class="calc-btn" onclick="calcLoan()">Calculate EMI</button>
+        <div class="result-box" id="loanResult">Your EMI will show here</div>
+    </div>
+
+    <!-- Percent -->
+    <div id="percent" class="calc-box">
+        <h2>Percentage Calculator</h2>
+        <div class="input-group"><label>What is X% of Y?</label><input type="number" id="percent1" placeholder="X %"><input type="number" id="percent2" placeholder="of Y" style="margin-top:10px;"></div>
+        <button class="calc-btn" onclick="calcPercent()">Calculate</button>
+        <div class="result-box" id="percentResult">Result will show here</div>
+    </div>
+</div>
+
+<footer class="footer">
+<p>© 2026 Nazmul IT | All Rights Reserved</p>
+</footer>
+
+<script>
+function openTab(tabName){
+    let tabs = document.querySelectorAll('.calc-box');
+    let btns = document.querySelectorAll('.tab-btn');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    btns.forEach(btn => btn.classList.remove('active'));
+    document.getElementById(tabName).classList.add('active');
+    event.target.classList.add('active');
+}
+let basicDisplay = document.getElementById("basicDisplay");
+function basicPress(value){ basicDisplay.value += value; }
+function basicCalc(){ try{ basicDisplay.value = Function('return ' + basicDisplay.value)(); }catch{ basicDisplay.value = "Error"; } }
+function basicClear(){ basicDisplay.value = ""; }
+function calcAge(){
+    let dob = new Date(document.getElementById('dob').value);
+    let today = new Date();
+    let age = today.getFullYear() - dob.getFullYear();
+    let m = today.getMonth() - dob.getMonth();
+    if(m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+    document.getElementById('ageResult').innerHTML = "Your Age: " + age + " Years";
+}
+function calcBMI(){
+    let h = document.getElementById('height').value/100;
+    let w = document.getElementById('weight').value;
+    let bmi = (w/(h*h)).toFixed(2);
+    document.getElementById('bmiResult').innerHTML = "Your BMI: " + bmi;
+}
+function calcLoan(){
+    let P = document.getElementById('loanAmount').value;
+    let r = document.getElementById('interest').value/100/12;
+    let n = document.getElementById('months').value;
+    let emi = (P * r * Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+    document.getElementById('loanResult').innerHTML = "Monthly EMI: ৳" + emi.toFixed(2);
+}
+function calcPercent(){
+    let x = document.getElementById('percent1').value;
+    let y = document.getElementById('percent2').value;
+    let res = (x/100)*y;
+    document.getElementById('percentResult').innerHTML = x + "% of " + y + " = " + res;
+}
+</script>
+</body>
+</html>

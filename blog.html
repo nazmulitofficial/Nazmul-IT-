@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog - Nazmul IT</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#000;
+color:#d1d5db;
+}
+
+/* Header */
+
+header{
+    background:#000;
+    border-bottom:1px solid #222;
+    padding:18px 20px;
+}
+
+.logo{
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    color:#ff8c00;
+    margin-bottom:15px;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:500;
+    padding:8px 12px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff8c00;
+}
+
+@media(max-width:768px)
+{
+
+    header{
+        padding:15px;
+    }
+
+    .logo{
+        font-size:26px;
+        margin-bottom:12px;
+    }
+
+    nav{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:15px;
+        padding:6px 8px;
+    }
+
+}
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+}
+
+.logo a{
+font-size:30px;
+font-weight:bold;
+color:#ff8800;
+text-decoration:none;
+}
+
+nav{
+display:flex;
+gap:20px;
+}
+
+nav a{
+color:#ddd;
+text-decoration:none;
+transition:.3s;
+}
+
+nav a:hover{
+color:#ff8800;
+}
+
+/* Blog */
+
+.blog-section{
+padding:50px 20px;
+}
+
+.blog-title{
+text-align:center;
+color:#ff8800;
+font-size:45px;
+margin-bottom:10px;
+}
+
+.blog-subtitle{
+text-align:center;
+color:#aaa;
+margin-bottom:40px;
+}
+
+.blog-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.blog-card{
+background:#111;
+border:1px solid #222;
+border-radius:15px;
+padding:25px;
+transition:.3s;
+}
+
+.blog-card:hover{
+transform:translateY(-8px);
+border-color:#ff8800;
+}
+
+.blog-card h3{
+color:#ff8800;
+margin-bottom:15px;
+font-size:24px;
+}
+
+.blog-card p{
+color:#bbb;
+line-height:1.7;
+margin-bottom:20px;
+}
+
+.blog-btn{
+display:inline-block;
+text-decoration:none;
+background:#ff8800;
+color:#fff;
+padding:10px 18px;
+border-radius:8px;
+transition:.3s;
+}
+
+.blog-btn:hover{
+background:#e67600;
+}
+
+/* Footer */
+
+footer{
+border-top:1px solid #222;
+padding:35px 20px;
+text-align:center;
+margin-top:60px;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-bottom:20px;
+}
+
+.footer-links a{
+text-decoration:none;
+color:#ddd;
+padding:10px 15px;
+border:1px solid #333;
+border-radius:8px;
+transition:.3s;
+}
+
+.footer-links a:hover{
+color:#ff8800;
+border-color:#ff8800;
+}
+
+footer p{
+color:#888;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:18px;
+}
+
+nav{
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.blog-title{
+font-size:34px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+<header>
+
+    <div class="logo">Nazmul IT</div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+        <a href="service.html">Service</a>
+        <a href="tools.html">Tools</a>
+        <a href="courses.html">Courses</a>
+        <a href="blog.html">Blog</a>
+
+    </nav>
+
+</header>
+
+<section class="blog-section">
+
+<div class="container">
+
+<h1 class="blog-title">Blog</h1>
+
+<p class="blog-subtitle">
+Read useful articles about Web Development, AI and Technology.
+</p>
+
+<div class="blog-grid">
+
+<div class="blog-card">
+
+<h3>Artificial Intelligence (AI)</h3>
+
+<p>
+Learn AI concepts, machine learning, ChatGPT, automation and future technologies.
+</p>
+
+<a href="ai.html" class="blog-btn">Read More</a>
+
+</div>
+
+
+<div class="blog-card">
+
+<h3>App Development</h3>
+
+<p>
+Learn Android app development, Flutter, mobile apps and app building processes.
+</p>
+
+<a href="app-development.html" class="blog-btn">Read More</a>
+
+</div>
+
+
+<div class="blog-card">
+
+<h3>Web Development</h3>
+
+<p>
+Learn HTML, CSS, JavaScript, responsive design and modern website development.
+</p>
+
+<a href="web-development.html" class="blog-btn">Read More</a>
+
+</div>
+
+
+<div class="blog-card">
+
+<h3>Graphics Design</h3>
+
+<p>
+Learn graphic design, UI design, branding, Photoshop and creative design skills.
+</p>
+
+<a href="graphics-design.html" class="blog-btn">Read More</a>
+
+</div>
+
+
+<div class="blog-card">
+
+<h3>Digital Marketing</h3>
+
+<p>
+Learn SEO, social media marketing, content marketing and online business strategies.
+</p>
+
+<a href="digital-marketing.html" class="blog-btn">Read More</a>
+
+</div>
+
+
+<div class="blog-card">
+
+<h3>Digital Skills</h3>
+
+<p>
+Improve essential digital skills, productivity tools and modern technology knowledge.
+</p>
+
+<a href="digital-skills.html" class="blog-btn">Read More</a>
+
+</div>
+
+
+<div class="blog-card">
+
+<h3>Programming</h3>
+
+<p>
+Learn programming fundamentals, coding languages and software development concepts.
+</p>
+
+<a href="programming.html" class="blog-btn">Read More</a>
+
+</div>
+
+
+<div class="blog-card">
+
+<h3>Search Engine Optimization (SEO)</h3>
+
+<p>
+Learn SEO basics, keyword research, ranking factors and website optimization.
+</p>
+
+<a href="seo.html" class="blog-btn">Read More</a>
+
+</div>
+
+
+<div class="blog-card">
+
+<h3>Video Editing</h3>
+
+<p>
+Learn video editing, content creation, editing tools and professional techniques.
+</p>
+
+<a href="video-editing.html" class="blog-btn">Read More</a>
+
+</div>
+
+<div class="blog-card">
+
+<h3>Online Income</h3>
+
+<p>
+Learn different ways to earn money online, freelancing, remote work, digital products and online business strategies.
+</p>
+
+<a href="online-income.html" class="blog-btn">Read More</a>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+
+<p>© 2026 Nazmul IT. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>

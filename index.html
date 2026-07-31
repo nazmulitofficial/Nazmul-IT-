@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nazmul IT</title>
+
+<style>
+
+header{
+    background:#000;
+    border-bottom:1px solid #222;
+    padding:18px 20px;
+}
+
+.logo{
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    color:#ff8c00;
+    margin-bottom:15px;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:500;
+    padding:8px 12px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff8c00;
+}
+
+@media(max-width:768px)
+{
+
+    header{
+        padding:15px;
+    }
+
+    .logo{
+        font-size:26px;
+        margin-bottom:12px;
+    }
+
+    nav{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:15px;
+        padding:6px 8px;
+    }
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#000;
+color:#d1d5db;
+}
+
+
+
+.hero{
+background:
+linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
+url("photo.jpg");
+background-size:cover;
+background-position:center top;
+background-repeat:no-repeat;
+height:60vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+
+.hero{
+text-align:center;
+padding:90px 20px;
+}
+
+.hero h1{
+font-size:65px;
+color:#fff;
+}
+
+.hero h2{
+margin-top:15px;
+color:#ff8800;
+font-size:30px;
+}
+
+.hero p{
+margin-top:20px;
+font-size:18px;
+color:#aaa;
+}
+
+.card-link{
+text-decoration:none;
+color:inherit;
+display:block;
+}
+
+.cards{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+padding:40px 20px;
+}
+
+.card{
+width:330px;
+background:#111;
+border:1px solid #222;
+border-radius:15px;
+padding:35px;
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:#ff8800;
+}
+
+.card h3{
+color:#ff8800;
+margin-bottom:15px;
+font-size:30px;
+}
+
+.contact{
+padding:80px 20px;
+text-align:center;
+}
+
+.contact h2{
+color:#ff8800;
+margin-bottom:15px;
+}
+
+footer{
+border-top:1px solid #222;
+padding:40px 20px;
+text-align:center;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-bottom:20px;
+}
+
+.footer-links a{
+text-decoration:none;
+color:#ddd;
+padding:10px 15px;
+border:1px solid #333;
+border-radius:8px;
+transition:.3s;
+}
+
+.footer-links a:hover{
+color:#ff8800;
+border-color:#ff8800;
+}
+
+footer p{
+color:#888;
+margin-top:10px;
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+    <div class="logo">Nazmul IT</div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+        <a href="service.html">Service</a>
+        <a href="tools.html">Tools</a>
+        <a href="courses.html">Courses</a>
+        <a href="blog.html">Blog</a>
+
+    </nav>
+
+</header>
+<section class="hero" id="home">
+
+<h1>Nazmul IT</h1>
+
+<h2>Learn • Build • Innovate</h2>
+
+<p>
+Professional Digital Solutions,
+Smart Tools and Technology.
+</p>
+
+</section>
+
+<section class="cards">
+
+<a href="service.html" class="card-link">
+<div class="card">
+<h3>Digital Service</h3>
+<p>Professional web development, digital solutions and creative services.</p>
+</div>
+</a>
+
+<a href="tools.html" class="card-link">
+<div class="card">
+<h3>Smart Tools</h3>
+<p>Useful AI tools, productivity solutions and technology resources.</p>
+</div>
+</a>
+
+<a href="courses.html" class="card-link">
+<div class="card">
+<h3>Free Courses</h3>
+<p>Learn web development, graphics design, AI tools and more for free.</p>
+</div>
+</a>
+
+<a href="blog.html" class="card-link">
+<div class="card">
+<h3>Blog</h3>
+<p>Read articles about web development, AI and technology.</p>
+</div>
+</a>
+
+</section>
+
+<section class="contact">
+
+<h2>Contact Us</h2>
+
+<p>Email: official.nazmulit@gmail.com</p>
+
+</section>
+
+<footer>
+
+<div class="footer-links">
+
+<a href="Footer/privacy-policy.html">Privacy Policy</a>
+
+<a href="Footer/terms&conditions.html">Terms & Conditions</a>
+<a href="Footer/contact.html">Contact</a>
+<a href="Footer/about.html">About</a>
+<a href="Footer/disclaimer.html">Disclemer</a>
+</div>
+
+<p>© 2026 Nazmul IT. All Rights Reserved</p>
+
+</footer>
+
+</body>
+</html>
