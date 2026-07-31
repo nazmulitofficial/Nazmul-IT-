@@ -1,76 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<urlset 
-xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- Main Pages -->
+<url><loc>https://nazmulit.com/index.html</loc><lastmod>2026-07-31</lastmod><priority>1.0</priority></url>
+<url><loc>https://nazmulit.com/about.html</loc><lastmod>2026-07-31</lastmod><priority>0.8</priority></url>
+<url><loc>https://nazmulit.com/contact.html</loc><lastmod>2026-07-31</lastmod><priority>0.8</priority></url>
+<url><loc>https://nazmulit.com/service.html</loc><lastmod>2026-07-31</lastmod><priority>0.8</priority></url>
+<url><loc>https://nazmulit.com/blog.html</loc><lastmod>2026-07-31</lastmod><priority>0.7</priority></url>
+<url><loc>https://nazmulit.com/courses.html</loc><lastmod>2026-07-31</lastmod><priority>0.7</priority></url>
+<url><loc>https://nazmulit.com/sitemap.html</loc><lastmod>2026-07-31</lastmod><priority>0.5</priority></url>
 
-    <url>
-        <loc>https://nazmulit.com/</loc>
-        <priority>1.0</priority>
-    </url>
+<!-- Services -->
+<url><loc>https://nazmulit.com/web-development.html</loc><lastmod>2026-07-31</lastmod><priority>0.7</priority></url>
+<url><loc>https://nazmulit.com/app-development.html</loc><lastmod>2026-07-31</lastmod><priority>0.7</priority></url>
+<url><loc>https://nazmulit.com/graphics-degain.html</loc><lastmod>2026-07-31</lastmod><priority>0.7</priority></url>
+<url><loc>https://nazmulit.com/digital-marketing.html</loc><lastmod>2026-07-31</lastmod><priority>0.7</priority></url>
+<url><loc>https://nazmulit.com/seo.html</loc><lastmod>2026-07-31</lastmod><priority>0.7</priority></url>
+<url><loc>https://nazmulit.com/video-editing.html</loc><lastmod>2026-07-31</lastmod><priority>0.7</priority></url>
+<url><loc>https://nazmulit.com/programing.html</loc><lastmod>2026-07-31</lastmod><priority>0.7</priority></url>
 
-    <url>
-        <loc>https://nazmulit.com/about.html</loc>
-        <priority>0.8</priority>
-    </url>
+<!-- Tools -->
+<url><loc>https://nazmulit.com/tools.html</loc><lastmod>2026-07-31</lastmod><priority>0.9</priority></url>
+<url><loc>https://nazmulit.com/calculator-tools.html</loc><lastmod>2026-07-31</lastmod><priority>0.8</priority></url>
+<url><loc>https://nazmulit.com/unit-converter-tools.html</loc><lastmod>2026-07-31</lastmod><priority>0.8</priority></url>
+<url><loc>https://nazmulit.com/image-tools.html</loc><lastmod>2026-07-31</lastmod><priority>0.8</priority></url>
+<url><loc>https://nazmulit.com/text-tools.html</loc><lastmod>2026-07-31</lastmod><priority>0.8</priority></url>
+<url><loc>https://nazmulit.com/code-tools.html</loc><lastmod>2026-07-31</lastmod><priority>0.8</priority></url>
+<url><loc>https://nazmulit.com/ai.html</loc><lastmod>2026-07-31</lastmod><priority>0.8</priority></url>
 
-    <url>
-        <loc>https://nazmulit.com/contact.html</loc>
-        <priority>0.8</priority>
-    </url>
+<!-- Learning & Income -->
+<url><loc>https://nazmulit.com/digital-skills.html</loc><lastmod>2026-07-31</lastmod><priority>0.6</priority></url>
+<url><loc>https://nazmulit.com/online-income.html</loc><lastmod>2026-07-31</lastmod><priority>0.6</priority></url>
 
-    <url>
-        <loc>https://nazmulit.com/tools.html</loc>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://nazmulit.com/courses.html</loc>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://nazmulit.com/blog.html</loc>
-        <priority>0.9</priority>
-    </url>
-    
-    <url>
-        <loc>https://nazmulit.com/blog.html</loc>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://nazmulit.com/blog.html</loc>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://nazmulit.com/blog.html</loc>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://nazmulit.com/blog.html</loc>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://nazmulit.com/blog.html</loc>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://nazmulit.com/blog.html</loc>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://nazmulit.com/blog.html</loc>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://nazmulit.com/blog.html</loc>
-        <priority>0.9</priority>
-    </url>
+<!-- Legal -->
+<url><loc>https://nazmulit.com/privacy-policy.html</loc><lastmod>2026-07-31</lastmod><priority>0.3</priority></url>
+<url><loc>https://nazmulit.com/terms&conditions.html</loc><lastmod>2026-07-31</lastmod><priority>0.3</priority></url>
+<url><loc>https://nazmulit.com/disclaimer.html</loc><lastmod>2026-07-31</lastmod><priority>0.3</priority></url>
 
 </urlset>
