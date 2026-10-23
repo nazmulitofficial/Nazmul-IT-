@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Tools - Nazmul IT</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+body{background:#000;color:#d1d5db;overflow-x:hidden;}
+
+/* SAME HEADER */
+header{background:#000;border-bottom:1px solid #222;padding:18px 20px;z-index:100;}
+.logo{text-align:center;font-size:32px;font-weight:bold;color:#ff8c00;margin-bottom:15px;}
+nav{display:flex;justify-content:center;align-items:center;gap:22px;flex-wrap:wrap;}
+nav a{color:#ddd;text-decoration:none;font-size:17px;font-weight:500;padding:8px 12px;transition:0.3s;border-radius:6px;}
+nav a:hover{color:#ff8c00;background:#111;}
+
+.hero{text-align:center;padding:50px 20px;border-bottom:1px solid #222;}
+.hero h1{font-size:42px;color:#ff8800;margin-bottom:10px;}
+.hero p{font-size:16px;color:#9ca3af;}
+
+/* TAB MENU */
+.tab-menu{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:30px auto;max-width:1000px;padding:0 20px;}
+.tab-btn{padding:12px 20px;background:#111;border:1px solid #333;color:#d1d5db;border-radius:8px;cursor:pointer;font-size:15px;font-weight:bold;transition:0.3s;}
+.tab-btn:hover{background:#222;border-color:#ff8800;}
+.tab-btn.active{background:#ff8800;color:#000;border-color:#ff8800;}
+
+/* TOOL BOX */
+.tool-container{max-width:700px;margin:30px auto;padding:0 20px;}
+.tool-box{background:#111;border:1px solid #222;border-radius:15px;padding:30px;display:none;}
+.tool-box.active{display:block;}
+.tool-box h2{color:#ff8800;text-align:center;margin-bottom:20px;font-size:24px;}
+
+/* INPUTS */
+.input-group{margin-bottom:15px;}
+.input-group label{display:block;color:#9ca3af;margin-bottom:8px;font-size:14px;}
+.input-group input,.input-group select{width:100%;padding:12px;background:#000;border:1px solid #333;border-radius:8px;color:#fff;font-size:16px;outline:none;}
+.input-group input:focus,.input-group select:focus{border-color:#ff8800;}
+.file-input{border:2px dashed #333;padding:20px;text-align:center;cursor:pointer;transition:0.3s;}
+.file-input:hover{border-color:#ff8800;}
+
+/* BUTTONS */
+.tool-btn{width:100%;padding:14px;background:#ff8800;color:#000;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;transition:0.3s;margin-top:10px;}
+.tool-btn:hover{background:#ff7700;}
+.tool-btn.download{background:#22c55e;}
+.tool-btn.download:hover{background:#16a34a;}
+.result-img{max-width:100%;margin-top:20px;border-radius:10px;border:1px solid #333;display:none;}
+
+#cropCanvas{max-width:100%;border:1px solid #333;border-radius:8px;display:none;touch-action:none;}
+
+footer{
+text-align:center;
+padding:25px;
+border-top:1px solid #222;
+color:#9ca3af;
+}
+
+@media(max-width:768px){
+    header{padding:15px;}
+   .logo{font-size:26px;margin-bottom:12px;}
+    nav{gap:12px;}
+    nav a{font-size:15px;padding:6px 8px;}
+   .hero h1{font-size:32px;}
+   .tab-btn{padding:10px 15px;font-size:13px;}
+   .tool-box{padding:20px;}
+}
+</style>
+</head>
+
+<body>
+<header>
+    <div class="logo">Nazmul IT</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="service.html">Service</a>
+        <a href="tools.html">Tools</a>
+        <a href="courses.html">Courses</a>
+        <a href="blog.html">Blog</a>
+    </nav>
+</header>
+
+<section class="hero">
+<h1>Image Tools</h1>
+<p>Resize, Compress, Convert, Crop Images Online for Free</p>
+</section>
+
+<!-- TAB BUTTONS -->
+<div class="tab-menu">
+    <button class="tab-btn active" onclick="openTab('resizer')">🖼️ Resizer</button>
+    <button class="tab-btn" onclick="openTab('compressor')">📦 Compressor</button>
+    <button class="tab-btn" onclick="openTab('converter')">🔄 Converter</button>
+    <button class="tab-btn" onclick="openTab('cropper')">✂️ Cropper</button>
+</div>
+
+<div class="tool-container">
+
+    <!-- 1. IMAGE RESIZER -->
+    <div id="resizer" class="tool-box active">
+        <h2>Image Resizer</h2>
+        <div class="input-group">
+            <label>Upload Image</label>
+            <input type="file" id="resizeFile" accept="image/*" class="file-input">
+        </div>
+        <div class="input-group">
+            <label>Width (px)</label>
+            <input type="number" id="resizeWidth" placeholder="e.g. 800">
+        </div>
+        <div class="input-group">
+            <label>Height (px)</label>
+            <input type="number" id="resizeHeight" placeholder="e.g. 600">
+        </div>
+        <button class="tool-btn" onclick="resizeImage()">Resize Image</button>
+        <img id="resizeResult" class="result-img">
+        <button class="tool-btn download" id="resizeDownloadBtn" onclick="downloadFromSrc('resizeResult', 'resized-image.png')" style="display:none;">⬇️ Download Resized Image</button>
+    </div>
+
+    <!-- 2. IMAGE COMPRESSOR -->
+    <div id="compressor" class="tool-box">
+        <h2>Image Compressor</h2>
+        <div class="input-group">
+            <label>Upload Image</label>
+            <input type="file" id="compressFile" accept="image/*" class="file-input">
+        </div>
+        <div class="input-group">
+            <label>Quality: <span id="qualityValue" style="color:#ff8800;">70%</span></label>
+            <input type="range" id="quality" min="1" max="100" value="70">
+        </div>
+        <button class="tool-btn" onclick="compressImage()">Compress Image</button>
+        <img id="compressResult" class="result-img">
+        <button class="tool-btn download" id="compressDownloadBtn" onclick="downloadFromSrc('compressResult', 'compressed-image.jpg')" style="display:none;">⬇️ Download Compressed Image</button>
+    </div>
+
+    <!-- 3. IMAGE CONVERTER -->
+    <div id="converter" class="tool-box">
+        <h2>Image Converter</h2>
+        <div class="input-group">
+            <label>Upload Image</label>
+            <input type="file" id="convertFile" accept="image/*" class="file-input">
+        </div>
+        <div class="input-group">
+            <label>Convert to</label>
+            <select id="format">
+                <option value="image/png">PNG</option>
+                <option value="image/jpeg">JPG</option>
+                <option value="image/webp">WEBP</option>
+            </select>
+        </div>
+        <button class="tool-btn" onclick="convertImage()">Convert Image</button>
+        <img id="convertResult" class="result-img">
+        <button class="tool-btn download" id="convertDownloadBtn" onclick="downloadFromSrc('convertResult', 'converted-image.png')" style="display:none;">⬇️ Download Converted Image</button>
+    </div>
+
+    <!-- 4. IMAGE CROPPER -->
+    <div id="cropper" class="tool-box">
+        <h2>Image Cropper</h2>
+        <div class="input-group">
+            <label>Upload Image</label>
+            <input type="file" id="cropFile" accept="image/*" class="file-input" onchange="loadCropImage(event)">
+        </div>
+        <div style="text-align:center;">
+            <canvas id="cropCanvas"></canvas>
+        </div>
+        <p style="color:#9ca3af;text-align:center;font-size:13px;margin:10px 0;">Drag with mouse or finger to select crop area</p>
+        <button class="tool-btn" onclick="cropImage()">Crop Image</button>
+        <img id="cropResult" class="result-img">
+        <button class="tool-btn download" id="cropDownloadBtn" onclick="downloadFromSrc('cropResult', 'cropped-image.png')" style="display:none;">⬇️ Download Cropped Image</button>
+    </div>
+
+</div>
+
+<footer class="footer">
+<p>© 2026 Nazmul IT | All Rights Reserved</p>
+</footer>
+
+<script>
+// TAB SWITCH
+function openTab(tabName){
+    let tabs = document.querySelectorAll('.tool-box');
+    let btns = document.querySelectorAll('.tab-btn');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    btns.forEach(btn => btn.classList.remove('active'));
+    document.getElementById(tabName).classList.add('active');
+    event.target.classList.add('active');
+}
+
+// QUALITY SLIDER
+document.getElementById('quality').oninput = function(){
+    document.getElementById('qualityValue').innerText = this.value + '%';
+}
+
+// DOWNLOAD FUNCTION
+function downloadFromSrc(imgId, fileName){
+    let img = document.getElementById(imgId);
+    let link = document.createElement('a');
+    link.download = fileName;
+    link.href = img.src;
+    link.click();
+}
+
+// RESIZE
+function resizeImage(){
+    let file = document.getElementById('resizeFile').files[0];
+    let w = document.getElementById('resizeWidth').value;
+    let h = document.getElementById('resizeHeight').value;
+    if(!file ||!w ||!h){ alert("Please upload image and enter width/height"); return; }
+    let reader = new FileReader();
+    reader.onload = function(e){
+        let img = new Image();
+        img.onload = function(){
+            let canvas = document.createElement('canvas');
+            canvas.width = w; canvas.height = h;
+            canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+            document.getElementById('resizeResult').src = canvas.toDataURL();
+            document.getElementById('resizeResult').style.display = 'block';
+            document.getElementById('resizeDownloadBtn').style.display = 'block';
+        }
+        img.src = e.target.result;
+    }
+    reader.readAsDataURL(file);
+}
+
+// COMPRESS
+function compressImage(){
+    let file = document.getElementById('compressFile').files[0];
+    let quality = document.getElementById('quality').value / 100;
+    if(!file){ alert("Please upload image"); return; }
+    let reader = new FileReader();
+    reader.onload = function(e){
+        let img = new Image();
+        img.onload = function(){
+            let canvas = document.createElement('canvas');
+            canvas.width = img.width; canvas.height = img.height;
+            canvas.getContext('2d').drawImage(img, 0, 0);
+            document.getElementById('compressResult').src = canvas.toDataURL('image/jpeg', quality);
+            document.getElementById('compressResult').style.display = 'block';
+            document.getElementById('compressDownloadBtn').style.display = 'block';
+        }
+        img.src = e.target.result;
+    }
+    reader.readAsDataURL(file);
+}
+
+// CONVERT
+function convertImage(){
+    let file = document.getElementById('convertFile').files[0];
+    let format = document.getElementById('format').value;
+    if(!file){ alert("Please upload image"); return; }
+    let reader = new FileReader();
+    reader.onload = function(e){
+        let img = new Image();
+        img.onload = function(){
+            let canvas = document.createElement('canvas');
+            canvas.width = img.width; canvas.height = img.height;
+            canvas.getContext('2d').drawImage(img, 0, 0);
+            document.getElementById('convertResult').src = canvas.toDataURL(format);
+            document.getElementById('convertResult').style.display = 'block';
+            document.getElementById('convertDownloadBtn').style.display = 'block';
+        }
+        img.src = e.target.result;
+    }
+    reader.readAsDataURL(file);
+}
+
+// CROPPER WITH MOBILE SUPPORT
+let cropCanvas = document.getElementById('cropCanvas');
+let cropCtx = cropCanvas.getContext('2d');
+let cropImg = new Image();
+let isDragging = false;
+let startX, startY, endX, endY;
+
+function loadCropImage(e){
+    let file = e.target.files[0];
+    let reader = new FileReader();
+    reader.onload = function(event){
+        cropImg.onload = function(){
+            let maxWidth = cropCanvas.parentElement.clientWidth;
+            let scale = Math.min(maxWidth / cropImg.width, 1);
+            cropCanvas.width = cropImg.width * scale;
+            cropCanvas.height = cropImg.height * scale;
+            cropCtx.drawImage(cropImg, 0, 0, cropCanvas.width, cropCanvas.height);
+            cropCanvas.style.display = 'block';
+        }
+        cropImg.src = event.target.result;
+    }
+    reader.readAsDataURL(file);
+}
+
+function getPos(e){
+    let rect = cropCanvas.getBoundingClientRect();
+    let x, y;
+    if(e.touches){
+        x = e.touches[0].clientX - rect.left;
+        y = e.touches[0].clientY - rect.top;
+    } else {
+        x = e.clientX - rect.left;
+        y = e.clientY - rect.top;
+    }
+    let scaleX = cropImg.width / cropCanvas.width;
+    let scaleY = cropImg.height / cropCanvas.height;
+    return {x: x * scaleX, y: y * scaleY, canvasX: x, canvasY: y}
+}
+
+function startDrag(e){
+    e.preventDefault();
+    isDragging = true;
+    let pos = getPos(e);
+    startX = pos.x; startY = pos.y;
+}
+
+function moveDrag(e){
+    if(!isDragging) return;
+    e.preventDefault();
+    let pos = getPos(e);
+    endX = pos.x; endY = pos.y;
+    cropCtx.clearRect(0,0,cropCanvas.width,cropCanvas.height);
+    cropCtx.drawImage(cropImg,0,0,cropCanvas.width,cropCanvas.height);
+    cropCtx.strokeStyle = '#ff8800';
+    cropCtx.lineWidth = 2;
+    let scaleX = cropCanvas.width / cropImg.width;
+    let scaleY = cropCanvas.height / cropImg.height;
+    cropCtx.strokeRect(startX*scaleX, startY*scaleY, (endX-startX)*scaleX, (endY-startY)*scaleY);
+}
+
+function endDrag(){ isDragging = false; }
+
+// Mouse + Touch Events
+cropCanvas.onmousedown = startDrag;
+cropCanvas.onmousemove = moveDrag;
+cropCanvas.onmouseup = endDrag;
+cropCanvas.onmouseleave = endDrag;
+cropCanvas.ontouchstart = startDrag;
+cropCanvas.ontouchmove = moveDrag;
+cropCanvas.ontouchend = endDrag;
+
+function cropImage(){
+    if(!endX) { alert("Please select an area first"); return; }
+    let w = Math.abs(endX - startX);
+    let h = Math.abs(endY - startY);
+    let sx = Math.min(startX, endX);
+    let sy = Math.min(startY, endY);
+    let tempCanvas = document.createElement('canvas');
+    tempCanvas.width = w; tempCanvas.height = h;
+    tempCanvas.getContext('2d').drawImage(cropImg, sx, sy, w, h, 0, 0, w, h);
+    document.getElementById('cropResult').src = tempCanvas.toDataURL();
+    document.getElementById('cropResult').style.display = 'block';
+    document.getElementById('cropDownloadBtn').style.display = 'block';
+}
+</script>
+</body>
+</html>

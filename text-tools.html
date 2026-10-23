@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Tools - Nazmul IT</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+body{background:#000;color:#d1d5db;}
+header{
+    background:#000;
+    border-bottom:1px solid #222;
+    padding:18px 20px;
+}
+
+.logo{
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    color:#ff8c00;
+    margin-bottom:15px;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:500;
+    padding:8px 12px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff8c00;
+}
+
+@media(max-width:768px)
+{
+
+    header{
+        padding:15px;
+    }
+
+    .logo{
+        font-size:26px;
+        margin-bottom:12px;
+    }
+
+    nav{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:15px;
+        padding:6px 8px;
+    }
+
+}
+.hero{text-align:center;padding:50px 20px;border-bottom:1px solid #222;}
+.hero h1{font-size:42px;color:#ff8800;margin-bottom:10px;}
+.tab-menu{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:30px auto;max-width:1200px;padding:0 20px;}
+.tab-btn{padding:12px 18px;background:#111;border:1px solid #333;color:#d1d5db;border-radius:8px;cursor:pointer;font-size:14px;font-weight:bold;}
+.tab-btn.active{background:#ff8800;color:#000;border-color:#ff8800;}
+.tool-container{max-width:900px;margin:30px auto;padding:0 20px;}
+.tool-box{background:#111;border:1px solid #222;border-radius:15px;padding:30px;display:none;}
+.tool-box.active{display:block;}
+.tool-box h2{color:#ff8800;text-align:center;margin-bottom:20px;font-size:24px;}
+.input-group{margin-bottom:15px;}
+.input-group label{display:block;color:#9ca3af;margin-bottom:8px;font-size:14px;}
+textarea,input[type="text"]{width:100%;padding:12px;background:#000;border:1px solid #333;border-radius:8px;color:#fff;font-size:15px;outline:none;min-height:200px;resize:vertical;}
+textarea:focus,input:focus{border-color:#ff8800;}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));gap:15px;margin:20px 0;}
+.stat-box{background:#000;border:1px solid #222;border-radius:10px;padding:15px;text-align:center;}
+.stat-box.number{font-size:24px;font-weight:bold;color:#ff8800;}
+.stat-box.label{font-size:12px;color:#9ca3af;margin-top:5px;}
+.btn-group{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
+.tool-btn{flex:1;padding:12px;background:#ff8800;color:#000;border:none;border-radius:8px;font-weight:bold;cursor:pointer;}
+.tool-btn:hover{background:#ff7700;}
+.output-box{background:#000;padding:15px;border-radius:8px;border:1px solid #333;color:#0f0;font-family:monospace;min-height:100px;white-space:pre-wrap;margin-top:10px;}
+.fancy-item{background:#000;padding:10px;border-radius:6px;margin:8px 0;cursor:pointer;border:1px solid #222;}
+.fancy-item:hover{border-color:#ff8800;}
+.footer{text-align:center;padding:30px 20px;border-top:1px solid #222;margin-top:40px;color:#9ca3af;}
+</style>
+</head>
+
+<body>
+
+
+
+
+
+
+
+<header>
+
+    <div class="logo">Nazmul IT</div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+        <a href="service.html">Service</a>
+        <a href="tools.html">Tools</a>
+        <a href="courses.html">Courses</a>
+        <a href="blog.html">Blog</a>
+
+    </nav>
+
+</header>
+
+
+<section class="hero">
+<h1>Text Tools</h1>
+<p>8 Free Tools for Writers & Developers</p>
+</section>
+
+<div class="tab-menu">
+    <button class="tab-btn active" id="btn1">📊 Word Counter</button>
+    <button class="tab-btn" id="btn2">🔤 Case Converter</button>
+    <button class="tab-btn" id="btn3">🔗 Slug Generator</button>
+    <button class="tab-btn" id="btn4">🧹 Text Cleaner</button>
+    <button class="tab-btn" id="btn5">⚖️ Diff Checker</button>
+    <button class="tab-btn" id="btn6">✨ Fancy Text</button>
+    <button class="tab-btn" id="btn7">🔍 Find & Replace</button>
+    <button class="tab-btn" id="btn8">💻 Encoder</button>
+</div>
+
+<div class="tool-container">
+
+    <!-- 1. WORD COUNTER -->
+    <div id="box1" class="tool-box active">
+        <h2>Word, Character & Reading Time Counter</h2>
+        <textarea id="textInput" placeholder="Paste your text here..."></textarea>
+        <div class="stats-grid">
+            <div class="stat-box"><div class="number" id="wordCount">0</div><div class="label">Words</div></div>
+            <div class="stat-box"><div class="number" id="charCount">0</div><div class="label">Characters</div></div>
+            <div class="stat-box"><div class="number" id="charNoSpace">0</div><div class="label">No Space</div></div>
+            <div class="stat-box"><div class="number" id="sentenceCount">0</div><div class="label">Sentences</div></div>
+            <div class="stat-box"><div class="number" id="paraCount">0</div><div class="label">Paragraphs</div></div>
+            <div class="stat-box"><div class="number" id="readTime">0 min</div><div class="label">Read Time</div></div>
+        </div>
+        <button class="tool-btn" onclick="clearText()" style="background:#ef4444;color:#fff;">🗑️ Clear</button>
+    </div>
+
+    <!-- 2. CASE CONVERTER -->
+    <div id="box2" class="tool-box">
+        <h2>Case Converter</h2>
+        <textarea id="caseInput" placeholder="Enter text here..."></textarea>
+        <div class="btn-group">
+            <button class="tool-btn" onclick="convertCase('upper')">UPPERCASE</button>
+            <button class="tool-btn" onclick="convertCase('lower')">lowercase</button>
+            <button class="tool-btn" onclick="convertCase('title')">Title Case</button>
+            <button class="tool-btn" onclick="convertCase('sentence')">Sentence case</button>
+            <button class="tool-btn" onclick="convertCase('camel')">camelCase</button>
+        </div>
+        <div class="output-box" id="caseOutput"></div>
+        <button class="tool-btn" onclick="copy('caseOutput')">📋 Copy</button>
+    </div>
+
+    <!-- 3. SLUG GENERATOR -->
+    <div id="box3" class="tool-box">
+        <h2>URL Slug Generator</h2>
+        <input type="text" id="slugInput" placeholder="Enter Title: Nazmul IT Blog Post">
+        <button class="tool-btn" onclick="genSlug()">Generate Slug</button>
+        <div class="output-box" id="slugOutput">nazmul-it-blog-post</div>
+        <button class="tool-btn" onclick="copy('slugOutput')">📋 Copy Slug</button>
+    </div>
+
+    <!-- 4. TEXT CLEANER -->
+    <div id="box4" class="tool-box">
+        <h2>Remove Extra Spaces & Lines</h2>
+        <textarea id="cleanInput" placeholder="Paste text with extra spaces..."></textarea>
+        <button class="tool-btn" onclick="cleanText()">Clean Text</button>
+        <div class="output-box" id="cleanOutput"></div>
+        <button class="tool-btn" onclick="copy('cleanOutput')">📋 Copy Cleaned Text</button>
+    </div>
+
+    <!-- 5. DIFF CHECKER -->
+    <div id="box5" class="tool-box">
+        <h2>Text Diff Checker</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">
+            <textarea id="diff1" placeholder="Original Text" style="min-height:150px;"></textarea>
+            <textarea id="diff2" placeholder="Modified Text" style="min-height:150px;"></textarea>
+        </div>
+        <button class="tool-btn" onclick="diffText()">Compare Text</button>
+        <div class="output-box" id="diffOutput">Click Compare to see differences</div>
+    </div>
+
+    <!-- 6. FANCY TEXT -->
+    <div id="box6" class="tool-box">
+        <h2>Fancy Text Generator</h2>
+        <input type="text" id="fancyInput" placeholder="Type your text">
+        <button class="tool-btn" onclick="genFancy()">Generate Fancy Text</button>
+        <div id="fancyOutput"></div>
+    </div>
+
+    <!-- 7. FIND & REPLACE -->
+    <div id="box7" class="tool-box">
+        <h2>Find & Replace Tool</h2>
+        <textarea id="findInput" placeholder="Paste your text"></textarea>
+        <div style="display:flex;gap:10px;margin:10px 0;">
+            <input type="text" id="findWord" placeholder="Find">
+            <input type="text" id="replaceWord" placeholder="Replace with">
+        </div>
+        <button class="tool-btn" onclick="findReplace()">Replace All</button>
+        <div class="output-box" id="findOutput"></div>
+        <button class="tool-btn" onclick="copy('findOutput')">📋 Copy</button>
+    </div>
+
+    <!-- 8. ENCODER -->
+    <div id="box8" class="tool-box">
+        <h2>Base64 & Binary Encoder/Decoder</h2>
+        <textarea id="encodeInput" placeholder="Enter text"></textarea>
+        <div class="btn-group">
+            <button class="tool-btn" onclick="encodeBase64()">Base64 Encode</button>
+            <button class="tool-btn" onclick="decodeBase64()">Base64 Decode</button>
+            <button class="tool-btn" onclick="toBinary()">To Binary</button>
+        </div>
+        <div class="output-box" id="encodeOutput"></div>
+        <button class="tool-btn" onclick="copy('encodeOutput')">📋 Copy</button>
+    </div>
+
+</div>
+
+<footer class="footer"><p>© 2026 Nazmul IT | All Rights Reserved</p></footer>
+
+<script>
+// TAB SWITCH
+for(let i=1;i<=8;i++){
+  document.getElementById('btn'+i).onclick = () => {
+    document.querySelectorAll('.tool-box').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById('box'+i).classList.add('active');
+    document.getElementById('btn'+i).classList.add('active');
+  }
+}
+function copy(id){ navigator.clipboard.writeText(document.getElementById(id).innerText); alert('Copied!'); }
+
+// 1. WORD COUNTER
+textInput.oninput = function(){
+    let text = textInput.value;
+    let words = text.trim().split(/\s+/).filter(w => w.length > 0);
+    wordCount.innerText = text.trim() === ''? 0 : words.length;
+    charCount.innerText = text.length;
+    charNoSpace.innerText = text.replace(/\s/g, '').length;
+    sentenceCount.innerText = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+    paraCount.innerText = text.split(/\n\s*\n/).filter(p => p.trim().length > 0).length;
+    readTime.innerText = Math.ceil(words.length / 200) + ' min';
+}
+function clearText(){ textInput.value=''; textInput.oninput(); }
+
+// 2. CASE CONVERTER
+function convertCase(type){
+    let text = caseInput.value;
+    if(type=='upper') caseOutput.innerText = text.toUpperCase();
+    if(type=='lower') caseOutput.innerText = text.toLowerCase();
+    if(type=='title') caseOutput.innerText = text.replace(/\w\S*/g, w => w[0].toUpperCase()+w.slice(1).toLowerCase());
+    if(type=='sentence') caseOutput.innerText = text.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, c => c.toUpperCase());
+    if(type=='camel') caseOutput.innerText = text.replace(/(?:^\w|[A-Z]|\b\w)/g, (w,i)=> i==0?w.toLowerCase():w.toUpperCase()).replace(/\s+/g,'');
+}
+
+// 3. SLUG
+function genSlug(){
+    slugOutput.innerText = slugInput.value.toLowerCase().trim().replace(/[^\w\s-]/g,'').replace(/\s+/g,'-');
+}
+
+// 4. CLEANER
+function cleanText(){
+    cleanOutput.innerText = cleanInput.value.replace(/\s+/g,' ').trim();
+}
+
+// 5. DIFF
+function diffText(){
+    let t1 = diff1.value, t2 = diff2.value;
+    diffOutput.innerText = t1===t2? "✅ Texts are identical" : "❌ Texts are different\nOriginal: "+t1.length+" chars\nModified: "+t2.length+" chars";
+}
+
+// 6. FANCY
+function genFancy(){
+    let text = fancyInput.value;
+    let styles = [
+        {name:"Bold", text:`𝗯𝗼𝗹𝗱 ${text}`},
+        {name:"Italic", text:`𝘪𝘵𝘢𝘭𝘪𝘤 ${text}`},
+        {name:"Script", text:`𝒮𝒸𝓇𝒾𝓅𝓉 ${text}`},
+        {name:"Double", text:`𝔻𝕠𝕦𝕓𝕝𝕖 ${text}`},
+        {name:"Bubble", text:`ⓑⓤⓑⓛⓔ ${text}`}
+    ];
+    fancyOutput.innerHTML = '';
+    styles.forEach(s=>{
+        let div = document.createElement('div');
+        div.className='fancy-item';
+        div.innerText = s.text;
+        div.onclick = ()=>{ navigator.clipboard.writeText(s.text); alert('Copied!'); }
+        fancyOutput.appendChild(div);
+    });
+}
+
+// 7. FIND REPLACE
+function findReplace(){
+    findOutput.innerText = findInput.value.replaceAll(findWord.value, replaceWord.value);
+}
+
+// 8. ENCODER
+function encodeBase64(){ encodeOutput.innerText = btoa(encodeInput.value); }
+function decodeBase64(){ try{ encodeOutput.innerText = atob(encodeInput.value); }catch(e){ encodeOutput.innerText='Invalid Base64'; } }
+function toBinary(){ encodeOutput.innerText = encodeInput.value.split('').map(c=>c.charCodeAt(0).toString(2).padStart(8,'0')).join(' '); }
+</script>
+</body>
+</html>

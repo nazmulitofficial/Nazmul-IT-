@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gadgets | Nazmul IT</title>
+  <meta name="description" content="Explore useful and smart gadgets at Nazmul IT.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid #292929;
+      padding: 28px 20px 18px;
+      text-align: center;
+    }
+
+    .logo {
+      color: #ff8c00;
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 24px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 38px;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ff8c00;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 70px 20px 55px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #ff8c00;
+    }
+
+    .hero p {
+      color: #aaa;
+      font-size: 19px;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    /* Categories */
+    .categories {
+      text-align: center;
+      padding: 10px 20px 50px;
+    }
+
+    .categories h2 {
+      color: #ff8c00;
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .category-buttons button {
+      background: #111;
+      color: #ddd;
+      border: 1px solid #444;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .category-buttons button:hover,
+    .category-buttons button.active {
+      color: #000;
+      background: #ff8c00;
+      border-color: #ff8c00;
+    }
+
+    /* Products */
+    .products-section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 10px 20px 70px;
+    }
+
+    .products-section h2 {
+      text-align: center;
+      color: #ff8c00;
+      font-size: 32px;
+      margin-bottom: 35px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .product-card {
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      border-color: #ff8c00;
+      transform: translateY(-4px);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 220px;
+      background: #181818;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 16px;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 15px;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .rating {
+      color: #ffb000;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .description {
+      color: #aaa;
+      font-size: 14px;
+      min-height: 48px;
+    }
+
+    .price {
+      color: #ff8c00;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .buy-btn {
+      display: block;
+      text-align: center;
+      background: #ff8c00;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 11px;
+      border-radius: 8px;
+    }
+
+    .buy-btn:hover {
+      background: #ffa733;
+    }
+
+    /* Why Us */
+    .why-us {
+      max-width: 900px;
+      margin: 0 auto 70px;
+      padding: 45px 25px;
+      text-align: center;
+      background: #111;
+      border: 1px solid #ff8c00;
+      border-radius: 22px;
+    }
+
+    .why-us h2 {
+      color: #ff8c00;
+      font-size: 32px;
+      margin-bottom: 25px;
+    }
+
+    .why-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .why-item {
+      color: #ccc;
+      padding: 15px;
+    }
+
+    .why-item strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #292929;
+      text-align: center;
+      padding: 30px 20px;
+      color: #888;
+    }
+
+    footer strong {
+      color: #ff8c00;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+
+      .logo {
+        font-size: 34px;
+      }
+
+      nav {
+        gap: 25px;
+      }
+
+      nav a {
+        font-size: 17px;
+      }
+
+      .hero {
+        padding: 55px 20px 45px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      .product-image {
+        height: 160px;
+      }
+
+      .product-info {
+        padding: 15px;
+      }
+
+      .product-info h3 {
+        font-size: 17px;
+      }
+
+      .description {
+        font-size: 13px;
+      }
+
+      .price {
+        font-size: 20px;
+      }
+
+      .why-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        height: 230px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Nazmul IT</div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="service.html">Service</a>
+      <a href="tools.html">Tools</a>
+      <a href="courses.html">Courses</a>
+      <a href="blog.html">Blog</a>
+      <a href="gadgets.html">Gadgets</a>
+    </nav>
+  </header>
+
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Smart <span>Gadgets</span></h1>
+
+    <p>
+      Discover useful technology and smart gadgets
+      for everyday life.
+    </p>
+  </section>
+
+
+  <!-- Categories -->
+  <section class="categories">
+
+    <h2>Categories</h2>
+
+    <div class="category-buttons">
+
+      <button class="active" onclick="filterProducts('all', this)">
+        All
+      </button>
+
+      <button onclick="filterProducts('audio', this)">
+        Audio
+      </button>
+
+      <button onclick="filterProducts('wearable', this)">
+        Wearable
+      </button>
+
+      <button onclick="filterProducts('power', this)">
+        Power
+      </button>
+
+      <button onclick="filterProducts('accessories', this)">
+        Accessories
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- Products -->
+  <section class="products-section">
+
+    <h2>Featured Gadgets</h2>
+
+    <div class="product-grid">
+
+
+      <!-- Product 1 -->
+      <div class="product-card" data-category="audio">
+
+        <div class="product-image">
+          <!-- এখানে supplier-এর product image বসাবে -->
+          <span>Product Image</span>
+        </div>
+
+        <div class="product-info">
+
+          <h3>Wireless Earbuds</h3>
+
+          <div class="rating">
+            ★★★★★ 4.8
+          </div>
+
+          <p class="description">
+            Comfortable wireless earbuds with
+            high-quality sound.
+          </p>
+
+          <div class="price">
+            ৳1,499
+          </div>
+
+          <a href="#order" class="buy-btn">
+            Buy Now
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- Product 2 -->
+      <div class="product-card" data-category="wearable">
+
+        <div class="product-image">
+          <span>Product Image</span>
+        </div>
+
+        <div class="product-info">
+
+          <h3>Smart Watch</h3>
+
+          <div class="rating">
+            ★★★★★ 4.7
+          </div>
+
+          <p class="description">
+            Smart watch with fitness tracking
+            and daily activity features.
+          </p>
+
+          <div class="price">
+            ৳2,499
+          </div>
+
+          <a href="#order" class="buy-btn">
+            Buy Now
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- Product 3 -->
+      <div class="product-card" data-category="audio">
+
+        <div class="product-image">
+          <span>Product Image</span>
+        </div>
+
+        <div class="product-info">
+
+          <h3>Bluetooth Speaker</h3>
+
+          <div class="rating">
+            ★★★★★ 4.6
+          </div>
+
+          <p class="description">
+            Portable Bluetooth speaker with
+            powerful sound.
+          </p>
+
+          <div class="price">
+            ৳1,899
+          </div>
+
+          <a href="#order" class="buy-btn">
+            Buy Now
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- Product 4 -->
+      <div class="product-card" data-category="power">
+
+        <div class="product-image">
+          <span>Product Image</span>
+        </div>
+
+        <div class="product-info">
+
+          <h3>Fast Power Bank</h3>
+
+          <div class="rating">
+            ★★★★★ 4.7
+          </div>
+
+          <p class="description">
+            Portable power bank with fast
+            charging support.
+          </p>
+
+          <div class="price">
+            ৳1,799
+          </div>
+
+          <a href="#order" class="buy-btn">
+            Buy Now
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- Product 5 -->
+      <div class="product-card" data-category="accessories">
+
+        <div class="product-image">
+          <span>Product Image</span>
+        </div>
+
+        <div class="product-info">
+
+          <h3>USB-C Hub</h3>
+
+          <div class="rating">
+            ★★★★★ 4.6
+          </div>
+
+          <p class="description">
+            Compact USB-C hub for laptops
+            and mobile devices.
+          </p>
+
+          <div class="price">
+            ৳1,299
+          </div>
+
+          <a href="#order" class="buy-btn">
+            Buy Now
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- Product 6 -->
+      <div class="product-card" data-category="accessories">
+
+        <div class="product-image">
+          <span>Product Image</span>
+        </div>
+
+        <div class="product-info">
+
+          <h3>Wireless Charger</h3>
+
+          <div class="rating">
+            ★★★★★ 4.5
+          </div>
+
+          <p class="description">
+            Simple and convenient wireless
+            charging solution.
+          </p>
+
+          <div class="price">
+            ৳999
+          </div>
+
+          <a href="#order" class="buy-btn">
+            Buy Now
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Why Choose Us -->
+  <section class="why-us">
+
+    <h2>Why Shop With Us?</h2>
+
+    <div class="why-list">
+
+      <div class="why-item">
+        <strong>✓ Selected Products</strong>
+        Useful gadgets carefully selected.
+      </div>
+
+      <div class="why-item">
+        <strong>✓ Easy Ordering</strong>
+        Simple and convenient ordering.
+      </div>
+
+      <div class="why-item">
+        <strong>✓ Delivery Support</strong>
+        Delivery information provided clearly.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+
+    <p>
+      © 2026 <strong>Nazmul IT</strong>. All rights reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- Category Filter -->
+  <script>
+
+    function filterProducts(category, button) {
+
+      const products =
+        document.querySelectorAll('.product-card');
+
+      const buttons =
+        document.querySelectorAll('.category-buttons button');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      button.classList.add('active');
+
+      products.forEach(product => {
+
+        if (
+          category === 'all' ||
+          product.dataset.category === category
+        ) {
+
+          product.style.display = '';
+
+        } else {
+
+          product.style.display = 'none';
+
+        }
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>
