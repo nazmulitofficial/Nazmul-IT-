@@ -7,6 +7,66 @@
 
 <style>
 
+/* Header */
+
+header{
+    background:#000;
+    border-bottom:1px solid #222;
+    padding:18px 20px;
+}
+
+.logo{
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    color:#ff8c00;
+    margin-bottom:15px;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:500;
+    padding:8px 12px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff8c00;
+}
+
+@media(max-width:768px)
+{
+
+    header{
+        padding:15px;
+    }
+
+    .logo{
+        font-size:26px;
+        margin-bottom:12px;
+    }
+
+    nav{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:15px;
+        padding:6px 8px;
+    }
+
+}
+
 *{
 margin:0;
 padding:0;
@@ -19,49 +79,8 @@ background:#000;
 color:#d1d5db;
 }
 
-/* Header */
 
-header{
-background:#000;
-border-bottom:1px solid #222;
-z-index:1000;
-}
 
-.container{
-width:90%;
-max-width:1200px;
-margin:auto;
-}
-
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 0;
-}
-
-.logo a{
-color:#ff8800;
-text-decoration:none;
-font-size:30px;
-font-weight:bold;
-}
-
-nav{
-display:flex;
-gap:20px;
-}
-
-nav a{
-text-decoration:none;
-color:#ddd;
-transition:.3s;
-}
-
-nav a:hover,
-nav a.active{
-color:#ff8800;
-}
 
 /* Hero */
 
@@ -159,66 +178,7 @@ border-top:1px solid #222;
 color:#9ca3af;
 }
 
-@media(max-width:768px){
 
-header{
-    background:#000;
-    border-bottom:1px solid #222;
-    padding:18px 20px;
-}
-
-.logo{
-    text-align:center;
-    font-size:32px;
-    font-weight:bold;
-    color:#ff8c00;
-    margin-bottom:15px;
-}
-
-nav{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:22px;
-    flex-wrap:wrap;
-}
-
-nav a{
-    color:#ddd;
-    text-decoration:none;
-    font-size:17px;
-    font-weight:500;
-    padding:8px 12px;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:#ff8c00;
-}
-
-@media(max-width:768px){
-
-    header{
-        padding:15px;
-    }
-
-    .logo{
-        font-size:26px;
-        margin-bottom:12px;
-    }
-
-    nav{
-        gap:12px;
-    }
-
-    nav a{
-        font-size:15px;
-        padding:6px 8px;
-    }
-
-}
-
-}
 
 </style>
 </head>
@@ -245,40 +205,37 @@ nav a:hover{
 
 <h1>Digital Services</h1>
 
-<p>Professional Web Development, Graphic Design, Video Editing & Digital Solutions</p>
+<p>Nazmul IT Digital Craft </p>
 
 </section>
 
 <section class="services">
-<div class="service-card">
-<h2>🌐 Web Development</h2>
-<p>Responsive websites, business websites, landing pages and custom web applications.</p>
-<a class="order-btn" href="mailto:official.nazmulit@gmail.com?subject=Web%20Development%20Order&body=Hello%20Nazmul%20IT,%0A%0AI%20want%20to%20order%20your%20Web%20Development%20service.%0A%0AName:%20%0AEmail:%20%0APhone:%20%0AProject%20Details:%20%0ABudget:%20">Order Now</a>
-</div>
+
 
 <div class="service-card">
-<h2>📱 Android App Development</h2>
-<p>Custom Android applications with modern design and powerful features.</p>
-<a class="order-btn" href="mailto:official.nazmulit@gmail.com?subject=Android%20App%20Development%20Order&body=Hello%20Nazmul%20IT,%0A%0AI%20want%20to%20order%20your%20Android%20App%20Development%20service.%0A%0AName:%20%0AEmail:%20%0APhone:%20%0AProject%20Details:%20%0ABudget:%20">Order Now</a>
-</div>
+<h2>YouTube Thumbnail Design</h2>
+<p>Custom thumbnail designs that catch attention and increase click-through rates.</p>
+<a class="#">Order Now</a>
+
 
 <div class="service-card">
-<h2>🎨 Graphic Design</h2>
-<p>Professional logo, banner, social media posts and branding design.</p>
-<a class="order-btn" href="mailto:official.nazmulit@gmail.com?subject=Graphic%20Design%20Order&body=Hello%20Nazmul%20IT,%0A%0AI%20want%20to%20order%20your%20Graphic%20Design%20service.%0A%0AName:%20%0AEmail:%20%0APhone:%20%0AProject%20Details:%20%0ABudget:%20">Order Now</a>
-</div>
+<h2>Social Media Ad Design</h2>
+<p>High-converting ad creatives and promotional banners for Facebook, Instagram, and digital campaigns.</p>
+<a class="#">Order Now</a>
 
 <div class="service-card">
-<h2>🎬 Video Editing</h2>
-<p>High-quality YouTube videos, Shorts, Reels and promotional video editing.</p>
-<a class="order-btn" href="mailto:official.nazmulit@gmail.com?subject=Video%20Editing%20Order&body=Hello%20Nazmul%20IT,%0A%0AI%20want%20to%20order%20your%20Video%20Editing%20service.%0A%0AName:%20%0AEmail:%20%0APhone:%20%0AProject%20Details:%20%0ABudget:%20">Order Now</a>
-</div>
+<h2>⚡ Short Video Editing</h2>
+<p>Fast-paced, engaging edits for YouTube Shorts, Reels, and TikToks designed for maximum retention.</p>
+<a class="#">Order Now</a>
 
 <div class="service-card">
-<h2>⚙️ Digital Solutions</h2>
-<p>AI tools, automation, website optimization and custom digital solutions for individuals and businesses.</p>
-<a class="order-btn" href="mailto:official.nazmulit@gmail.com?subject=Digital%20Solutions%20Order&body=Hello%20Nazmul%20IT,%0A%0AI%20want%20to%20order%20your%20Digital%20Solutions%20service.%0A%0AName:%20%0AEmail:%20%0APhone:%20%0AProject%20Details:%20%0ABudget:%20">Order Now</a>
-</div>
+<h2>🎥 Blog Video Editing</h2>
+<p>Clean cuts, smooth transitions, sound balance, and storytelling edits for travel, lifestyle, and vlog videos.</p><a class="#">Order Now</a>
+
+<div class="service-card">
+<h2>Need a Custom Project?</h2>
+<p> a special request or a custom bundle in mind? Whether you need a set of thumbnails, ad creatives, short clips, or vlog edits, reach out and we will tailor the work to your needs.</p>
+<a class="#">Order Now</a>
 
 
 </section>
@@ -304,4 +261,5 @@ Request a Quote
 </footer>
 
 </body>
-</html>
+
+</html> 
