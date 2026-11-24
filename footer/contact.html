@@ -26,38 +26,61 @@ line-height:1.8;
 /* Header */
 
 header{
-background:#000;
-border-bottom:1px solid #222;
-padding:18px 20px;
+    background:#000;
+    border-bottom:1px solid #222;
+    padding:18px 20px;
 }
 
 .logo{
-text-align:center;
-font-size:32px;
-font-weight:bold;
-color:#ff8c00;
-margin-bottom:15px;
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    color:#ff8c00;
+    margin-bottom:15px;
 }
 
 nav{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:22px;
-flex-wrap:wrap;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
 }
 
 nav a{
-color:#ddd;
-text-decoration:none;
-font-size:17px;
-font-weight:500;
-padding:8px 12px;
-transition:.3s;
+    color:#ddd;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:500;
+    padding:8px 12px;
+    transition:0.3s;
 }
 
 nav a:hover{
-color:#ff8c00;
+    color:#ff8c00;
+}
+
+@media(max-width:768px)
+{
+
+    header{
+        padding:15px;
+    }
+
+    .logo{
+        font-size:26px;
+        margin-bottom:12px;
+    }
+
+    nav{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:15px;
+        padding:6px 8px;
+    }
+
 }
 
 /* Hero */
@@ -152,45 +175,6 @@ border-top:1px solid #222;
 color:#888;
 }
 
-/* Responsive */
-
-@media(max-width:768px){
-
-header{
-padding:15px;
-}
-
-.logo{
-font-size:26px;
-margin-bottom:12px;
-}
-
-nav{
-gap:12px;
-}
-
-nav a{
-font-size:15px;
-padding:6px 8px;
-}
-
-.hero{
-padding:45px 15px;
-}
-
-.hero h1{
-font-size:30px;
-}
-
-.container{
-padding:20px 15px;
-}
-
-.card{
-padding:20px;
-}
-
-}
 </style>
 
 </head>
@@ -202,13 +186,11 @@ padding:20px;
 <div class="logo">Nazmul IT</div>
 
 <nav>
-
-<a href="../index.html">Home</a>
-<a href="../service.html">Service</a>
-<a href="../tools.html">Tools</a>
-<a href="../course.html">Courses</a>
-<a href="../blog.html">Blog</a>
-
+    <a href="/index.html">Home</a>
+    <a href="/features/service.html">Services</a>
+    <a href="/features/tools.html">Tools</a>
+    <a href="/features/courses.html">Courses</a>
+    <a href="/features/blog.html">Blog</a>
 </nav>
 
 </header>
