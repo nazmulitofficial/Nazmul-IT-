@@ -6,9 +6,19 @@
 <title>Digital Services | Nazmul IT</title>
 
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#000;
+    color:#d1d5db;
+}
 
 /* Header */
-
 header{
     background:#000;
     border-bottom:1px solid #222;
@@ -44,9 +54,7 @@ nav a:hover{
     color:#ff8c00;
 }
 
-@media(max-width:768px)
-{
-
+@media(max-width:768px){
     header{
         padding:15px;
     }
@@ -64,179 +72,398 @@ nav a:hover{
         font-size:15px;
         padding:6px 8px;
     }
-
 }
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#000;
-color:#d1d5db;
-}
-
-
-
 
 /* Hero */
-
 .hero{
-text-align:center;
-padding:60px 20px;
-border-bottom:1px solid #222;
+    text-align:center;
+    padding:60px 20px;
+    border-bottom:1px solid #222;
 }
 
 .hero h1{
-font-size:45px;
-color:#ff8800;
-margin-bottom:10px;
+    font-size:45px;
+    color:#ff8800;
+    margin-bottom:10px;
 }
 
 .hero p{
-font-size:18px;
-color:#9ca3af;
+    font-size:18px;
+    color:#9ca3af;
 }
 
 /* Services */
-
 .services{
-max-width:1200px;
-margin:auto;
-padding:50px 20px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+    max-width:1200px;
+    margin:auto;
+    padding:50px 20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
 }
 
 .service-card{
-background:#111;
-border:1px solid #222;
-border-radius:15px;
-padding:30px;
-text-align:center;
-transition:.3s;
+    background:#111;
+    border:1px solid #222;
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
+    transition:.3s;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
 }
 
 .service-card:hover{
-border-color:#ff8800;
-transform:translateY(-5px);
+    border-color:#ff8800;
+    transform:translateY(-5px);
 }
 
 .service-card h2{
-color:#ff8800;
-margin-bottom:15px;
-font-size:24px;
+    color:#ff8800;
+    margin-bottom:15px;
+    font-size:24px;
 }
 
 .service-card p{
-color:#9ca3af;
-line-height:1.7;
-margin-bottom:20px;
+    color:#9ca3af;
+    line-height:1.7;
+    margin-bottom:20px;
 }
 
 .order-btn{
-display:block;
-width:100%;
-padding:12px;
-background:#ff8800;
-color:#fff;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-transition:.3s;
+    display:block;
+    width:100%;
+    padding:12px;
+    background:#ff8800;
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:.3s;
 }
 
 .order-btn:hover{
-background:#ff7700;
-}
-
-.custom-project{
-text-align:center;
-padding:60px 20px;
-border-top:1px solid #222;
-}
-
-.custom-project h2{
-color:#ff8800;
-margin-bottom:15px;
-}
-
-.custom-project p{
-color:#9ca3af;
-margin-bottom:20px;
-line-height:1.7;
+    background:#ff7700;
 }
 
 footer{
-text-align:center;
-padding:25px;
-border-top:1px solid #222;
-color:#9ca3af;
+    text-align:center;
+    padding:25px;
+    border-top:1px solid #222;
+    color:#9ca3af;
 }
 
+/* Order Modal */
+.modal-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    padding:16px;
+}
 
+.modal-overlay.active{
+    display:flex;
+}
 
+.modal-box{
+    position:relative;
+    width:100%;
+    max-width:460px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:#111;
+    color:#fff;
+    border:1px solid #ff8800;
+    border-radius:14px;
+    padding:26px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.6);
+}
+
+.close-btn{
+    position:absolute;
+    top:12px;
+    right:16px;
+    background:none;
+    border:none;
+    color:#aaa;
+    font-size:28px;
+    cursor:pointer;
+    line-height:1;
+}
+
+.close-btn:hover{
+    color:#ff8800;
+}
+
+.modal-box h3{
+    color:#ff8800;
+    font-size:22px;
+    margin-bottom:6px;
+}
+
+.selected-service-badge{
+    display:inline-block;
+    background:#1c1c1c;
+    border:1px solid #333;
+    color:#ff9d2e;
+    font-size:13px;
+    font-weight:bold;
+    padding:6px 12px;
+    border-radius:6px;
+    margin-bottom:14px;
+}
+
+.form-group{
+    margin-bottom:14px;
+    text-align:left;
+}
+
+.form-group label{
+    display:block;
+    font-size:14px;
+    color:#d1d5db;
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:11px 12px;
+    border-radius:8px;
+    border:1px solid #2b2b2b;
+    background:#191919;
+    color:#fff;
+    font-size:14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    outline:none;
+    border-color:#ff8800;
+}
+
+.form-group input[readonly]{
+    background:#1f1f1f;
+    color:#ff9d2e;
+    font-weight:bold;
+}
+
+.submit-btn{
+    width:100%;
+    padding:12px;
+    background:#ff8800;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    background:#ff7700;
+}
+
+.submit-btn:disabled{
+    opacity:0.6;
+    cursor:not-allowed;
+}
+
+.form-message{
+    margin-top:12px;
+    font-size:14px;
+    text-align:center;
+    line-height:1.5;
+}
 </style>
 </head>
 
 <body>
-  
+
 <header>
-
     <div class="logo">Nazmul IT</div>
-
-  <nav>
-    <a href="/index.html">Home</a>
-    <a href="/features/services.html">Services</a>
-    <a href="/features/tools.html">Tools</a>
-    <a href="/features/courses.html">Courses</a>
-    <a href="/features/blog.html">Blog</a>
-</nav>
-
+    <nav>
+        <a href="/index.html">Home</a>
+        <a href="/features/services.html">Services</a>
+        <a href="/features/tools.html">Tools</a>
+        <a href="/features/courses.html">Courses</a>
+        <a href="/features/blog.html">Blog</a>
+    </nav>
 </header>
 
 <section class="hero">
-
-<h1>Digital Services</h1>
-
-<p>Nazmul IT Digital Craft </p>
-
+    <h1>Digital Services</h1>
+    <p>Nazmul IT Digital Craft</p>
 </section>
 
 <section class="services">
+    <div class="service-card">
+        <div>
+            <h2>YouTube Thumbnail Design</h2>
+            <p>Custom thumbnail designs that catch attention and increase click-through rates.</p>
+        </div>
+        <button type="button" class="order-btn" data-service="YouTube Thumbnail Design">Order Now</button>
+    </div>
 
+    <div class="service-card">
+        <div>
+            <h2>Social Media Ad Design</h2>
+            <p>High-converting ad creatives and promotional banners for Facebook, Instagram, and digital campaigns.</p>
+        </div>
+        <button type="button" class="order-btn" data-service="Social Media Ad Design">Order Now</button>
+    </div>
 
-<div class="service-card">
-<h2>YouTube Thumbnail Design</h2>
-<p>Custom thumbnail designs that catch attention and increase click-through rates.</p>
-<a class="#">Order Now</a></div>
+    <div class="service-card">
+        <div>
+            <h2>Short Video Editing</h2>
+            <p>Fast-paced, engaging edits for YouTube Shorts, Reels, and TikToks designed for maximum retention.</p>
+        </div>
+        <button type="button" class="order-btn" data-service="Short Video Editing">Order Now</button>
+    </div>
 
-
-<div class="service-card">
-<h2>Social Media Ad Design</h2>
-<p>High-converting ad creatives and promotional banners for Facebook, Instagram, and digital campaigns.</p>
-<a class="#">Order Now</a></div>
-
-<div class="service-card">
-<h2>Short Video Editing</h2>
-<p>Fast-paced, engaging edits for YouTube Shorts, Reels, and TikToks designed for maximum retention.</p>
-<a class="#">Order Now</a></div>
-
-<div class="service-card">
-<h2>Blog Video Editing</h2>
-<p>Clean cuts, smooth transitions, sound balance, and storytelling edits for travel, lifestyle, and vlog videos.</p>
-<a class="#">Order Now</a></div>
-
-
+    <div class="service-card">
+        <div>
+            <h2>Blog Video Editing</h2>
+            <p>Clean cuts, smooth transitions, sound balance, and storytelling edits for travel, lifestyle, and vlog videos.</p>
+        </div>
+        <button type="button" class="order-btn" data-service="Blog Video Editing">Order Now</button>
+    </div>
 </section>
 
+<!-- Order Popup Modal -->
+<div id="orderModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-box">
+        <button type="button" id="closeModal" class="close-btn" aria-label="Close modal">&times;</button>
+        <h3>Order Form</h3>
+        <div id="serviceBadge" class="selected-service-badge">Service: Selected Service</div>
+
+        <!-- Web3Forms Endpoint -->
+        <form id="orderForm" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Web3Forms থেকে পাওয়া আপনার Access Key নিচে বসান -->
+            <input type="hidden" name="access_key" value="9f41c3cc-942b-419e-b1cd-fa90f0210935">
+            <input type="hidden" name="subject" value="New Order Request - Nazmul IT">
+            <input type="hidden" name="from_name" value="Nazmul IT Services">
+
+            <div class="form-group">
+                <label for="serviceName">Selected Service</label>
+                <input type="text" id="serviceName" name="service" readonly required>
+            </div>
+
+            <div class="form-group">
+                <label for="clientName">Your Name</label>
+                <input type="text" id="clientName" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="clientEmail">Your Email</label>
+                <input type="email" id="clientEmail" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="clientContact">Phone / WhatsApp</label>
+                <input type="text" id="clientContact" name="phone_or_whatsapp" placeholder="Enter phone or WhatsApp number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="orderDetails">Project Details</label>
+                <textarea id="orderDetails" name="project_details" rows="4" placeholder="Write your requirements, style, size, or reference links..." required></textarea>
+            </div>
+
+            <button type="submit" id="submitOrderBtn" class="submit-btn">Submit Order</button>
+            <div id="formMessage" class="form-message"></div>
+        </form>
+    </div>
+</div>
+
 <footer>
-<p>© 2026 Nazmul IT. All Rights Reserved.</p>
+    <p>© 2026 Nazmul IT. All Rights Reserved.</p>
 </footer>
 
+<script>
+const orderButtons = document.querySelectorAll('.order-btn');
+const modal = document.getElementById('orderModal');
+const closeModalBtn = document.getElementById('closeModal');
+const serviceNameInput = document.getElementById('serviceName');
+const serviceBadge = document.getElementById('serviceBadge');
+const orderForm = document.getElementById('orderForm');
+const submitOrderBtn = document.getElementById('submitOrderBtn');
+const formMessage = document.getElementById('formMessage');
+
+function openOrderModal(service) {
+    serviceNameInput.value = service;
+    serviceBadge.textContent = `Service: ${service}`;
+    formMessage.textContent = '';
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+}
+
+function closeOrderModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+}
+
+orderButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        const service = button.getAttribute('data-service');
+        openOrderModal(service);
+    });
+});
+
+closeModalBtn.addEventListener('click', closeOrderModal);
+
+modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        closeOrderModal();
+    }
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.classList.contains('active')) {
+        closeOrderModal();
+    }
+});
+
+orderForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    submitOrderBtn.disabled = true;
+    submitOrderBtn.textContent = 'Sending...';
+    formMessage.style.color = '#ff9d2e';
+    formMessage.textContent = 'Submitting your order...';
+
+    const formData = new FormData(orderForm);
+
+    try {
+        const response = await fetch(orderForm.action, {
+            method: 'POST',
+            body: formData
+        });
+        const data = await response.json();
+
+        if (data.success) {
+            formMessage.style.color = '#4ade80';
+            formMessage.textContent = 'Your order has been sent! We will contact you soon to confirm.';
+            orderForm.reset();
+        } else {
+            formMessage.style.color = '#f87171';
+            formMessage.textContent = data.message || 'Could not send order. Please check your access key.';
+        }
+    } catch (error) {
+        formMessage.style.color = '#f87171';
+        formMessage.textContent = 'Connection error. Please try again.';
+    } finally {
+        submitOrderBtn.disabled = false;
+        submitOrderBtn.textContent = 'Submit Order';
+    }
+});
+</script>
+
 </body>
-</html> 
+</html>
